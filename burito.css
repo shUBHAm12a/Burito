@@ -160,11 +160,85 @@
   .story {
     background-color: var(--cream);
     padding: 4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
   }
 
   .story-inner {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  .story-paragraph-wrapper {
+    position: relative;
+  }
+
+  /* Story Stickers */
+  .story-sticker {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 5;
+    transition: all 0.3s ease;
+  }
+
+  .sticker-left {
+    left: -190px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-6deg);
+    width: 160px;
+  }
+
+  .sticker-right {
+    right: -180px;
+    top: 50%;
+    transform: translateY(-50%) rotate(8deg);
+    width: 150px;
+  }
+
+  /* Responsive styling for stickers */
+  @media (max-width: 1200px) {
+    .sticker-left {
+      left: -130px;
+      width: 120px;
+    }
+    .sticker-right {
+      right: -130px;
+      width: 120px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .sticker-left {
+      left: -95px;
+      width: 90px;
+      opacity: 0.8;
+    }
+    .sticker-right {
+      right: -95px;
+      width: 90px;
+      opacity: 0.8;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .sticker-left {
+      left: -35px;
+      width: 80px;
+      opacity: 0.3;
+    }
+    .sticker-right {
+      right: -35px;
+      width: 80px;
+      opacity: 0.3;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .story-sticker {
+      display: none;
+    }
   }
 
   .section-title {
@@ -185,6 +259,7 @@
     border-radius: 12px;
     margin-bottom: 2rem;
     border-left: 6px solid var(--orange);
+    position: relative;
   }
 
   .quote-box p {
