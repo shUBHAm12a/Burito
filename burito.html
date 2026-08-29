@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="burito.css">
+  <title>Taco Barrio - Good Tacos. Good Vibes.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- <style>
+    :root {
+      --teal: #145046;
+      --teal-dark: #0d3d3a;
+      --cream: #f8e8c3;
+      --orange: #e46127;
+      --yellow: #fcb31c;
+      --red: #94291f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--teal);
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--teal);
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid var(--orange);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--yellow);
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      padding: 4rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-family: 'Anton', sans-serif;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      color: var(--cream);
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 8px;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      margin: 1.5rem auto;
+      border-radius: 4px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--cream);
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      line-height: 1.6;
+    }
+
+    /* Wavy Dividers */
+    .wave-divider {
+      width: 100%;
+      height: 60px;
+      display: block;
+    }
+
+    .wave-divider.cream-fill path {
+      fill: var(--cream);
+    }
+
+    .wave-divider.teal-fill path {
+      fill: var(--teal);
+    }
+
+    .wave-flip {
+      transform: scaleY(-1);
+    }
+
+    /* Story Section */
+    .story {
+      background-color: var(--cream);
+      padding: 4rem 1.5rem;
+    }
+
+    .story-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-family: 'Anton', sans-serif;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .story .section-title {
+      color: var(--teal);
+    }
+
+    .quote-box {
+      background-color: var(--teal);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border-left: 6px solid var(--orange);
+    }
+
+    .quote-box p {
+      color: var(--cream);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .quote-box strong {
+      color: var(--yellow);
+    }
+
+    .story-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--orange);
+      border-radius: 8px;
+      color: white;
+    }
+
+    .value-card h3 {
+      font-family: 'Anton', sans-serif;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    .value-card p {
+      font-size: 0.95rem;
+    }
+
+    .value-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 0.5rem;
+      fill: white;
+    }
+
+    /* Menu Section */
+    .menu {
+      background-color: var(--teal);
+      padding: 4rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    .menu-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .menu .section-title {
+      color: var(--yellow);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-subtitle {
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 3rem;
+      font-size: 1.05rem;
+    }
+
+    /* Category Tabs */
+    .category-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .category-tab {
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Anton', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background-color: transparent;
+      color: var(--cream);
+      border-bottom: 2px solid var(--cream);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .category-tab.active {
+      background-color: var(--orange);
+      color: white;
+      border-bottom: 4px solid var(--yellow);
+    }
+
+    .category-tab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(228, 97, 39, 0.3);
+    }
+
+    /* Menu Category Content */
+    .menu-category {
+      display: none;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .menu-category.active {
+      display: block;
+    }
+
+    .category-header {
+      background-color: rgba(244, 232, 195, 0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 6px solid var(--orange);
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .category-header img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid var(--orange);
+    }
+
+    .category-header-text {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .category-header h3 {
+      font-size: 1.4rem;
+      font-family: 'Anton', sans-serif;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .category-header p {
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* Menu Items Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .menu-card {
+      background-color: rgba(244, 232, 195, 0.05);
+      border: 2px solid var(--orange);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(228, 97, 39, 0.3);
+    }
+
+    .menu-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .menu-card-title {
+      font-size: 1.1rem;
+      font-family: 'Anton', sans-serif;
+      color: var(--yellow);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .vegan-badge {
+      font-size: 0.75rem;
+      background-color: var(--teal);
+      color: var(--cream);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid var(--cream);
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+    }
+
+    .menu-card-price {
+      font-size: 1.3rem;
+      font-family: 'Anton', sans-serif;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+
+    .menu-card-note {
+      font-size: 0.85rem;
+      color: var(--cream);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Expanded Details */
+    .menu-details {
+      margin-top: 1rem;
+      padding: 1.5rem;
+      background-color: rgba(20, 80, 70, 0.3);
+      border-radius: 8px;
+      border-left: 4px solid var(--yellow);
+      display: none;
+    }
+
+    .menu-details.open {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    .detail-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-title {
+      color: var(--yellow);
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background-color: rgba(252, 179, 28, 0.2);
+      color: var(--cream);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .tag-alt {
+      background-color: rgba(228, 97, 39, 0.2);
+    }
+
+    .tag-outline {
+      background-color: rgba(244, 232, 195, 0.1);
+      border: 1px solid rgba(244, 232, 195, 0.3);
+    }
+
+    .tag-price {
+      color: var(--orange);
+      font-weight: bold;
+    }
+
+    .extra-group-title {
+      color: var(--yellow);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    /* Tip Box */
+    .tip-box {
+      background-color: rgba(252, 179, 28, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px dashed var(--yellow);
+    }
+
+    .tip-box p {
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .tip-box p:last-child {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: var(--cream);
+      padding: 4rem 1.5rem;
+    }
+
+    .contact-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact .section-title {
+      color: var(--teal);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background-color: var(--teal);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .contact-card svg {
+      margin: 0 auto 1rem;
+      width: 40px;
+      height: 40px;
+    }
+
+    .contact-card h3 {
+      font-family: 'Anton', sans-serif;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-card p {
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--teal);
+      padding: 2rem 1.5rem;
+      border-top: 3px solid var(--orange);
+      text-align: center;
+      color: var(--cream);
+    }
+
+    footer .footer-brand {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .category-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .category-header img {
+        margin: 0 auto;
+      }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body> -->
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Taco Barrio</div>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://i.pinimg.com/1200x/48/48/ff/4848ff49381c2da1b62ccfa1f6338fe2.jpg" alt="Mexican street food" class="hero-bg-img">
+    
+    <div class="hero-content">
+      <h1>Good Tacos. Good Vibes.</h1>
+      <p class="hero-tagline">One Barrio.</p>
+      <div class="hero-divider"></div>
+      <p>Fresh Mexican street food with bold flavours, fresh ingredients, and the kind of spirit that brings people together.</p>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <svg class="wave-divider cream-fill" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,40 Q300,80 600,40 T1200,40 L1200,120 L0,120 Z" />
+  </svg>
+
+  <!-- Brand Story -->
+  <section id="story" class="story">
+    <div class="story-inner">
+      <h2 class="section-title">Our Story</h2>
+
+      <div class="quote-box">
+        <p>"In Mexico, a <strong>barrio</strong> is more than just a neighbourhood. It's where people meet, eat, laugh, share stories and make memories. It's loud, lively, welcoming and full of character."</p>
+      </div>
+
+      <p class="story-text">Taco Barrio was born from a simple love for authentic Mexican street food — bold flavours, fresh ingredients, and the kind of food that brings people together.</p>
+
+      <p class="story-text">We're bringing that spirit to Queen Street. Our little corner of Mexico in the heart of Auckland, serving up fresh Mexican street food with big flavour, bold personality and a whole lot of barrio energy.</p>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <h3>Authentic</h3>
+          <p>Fresh, bold flavours</p>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <h3>Community</h3>
+          <p>Where everyone belongs</p>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <h3>Good Vibes</h3>
+          <p>Energy & personality</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wavy Divider 2 -->
+  <svg class="wave-divider teal-fill wave-flip" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,40 Q300,80 600,40 T1200,40 L1200,120 L0,120 Z" />
+  </svg>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu">
+    <div class="menu-inner">
+      <h2 class="section-title">Our Menu</h2>
+      <p class="menu-subtitle">All served with bold flavour and barrio energy</p>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs" id="categoryTabs"></div>
+
+      <!-- Menu Categories -->
+      <div id="menuContent"></div>
+
+      <div class="tip-box">
+        <p><strong>Customize your order</strong> — Remove or add ingredients at no extra cost!</p>
+        <p>Add extras like guacamole, extra protein, jalapenos and more to make it your way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <h2 class="section-title">Visit Us</h2>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <h3>Location</h3>
+          <p>115 Queen Street<br>Auckland, NZ</p>
+        </div>
+
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <h3>Hours</h3>
+          <p>Open Daily<br>11am - 11pm</p>
+        </div>
+
+        <div class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <h3>Get in Touch</h3>
+          <p>@tacobarrio.nz<br>Follow for updates!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-brand">TACO BARRIO</p>
+    <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+  </footer>
+
+  <script src="burito.js"></script>
+  <!-- <script>
+    const menuCategories = {
+      burritos: {
+        name: 'Signature Grilled Burritos',
+        image: 'https://kimi-web-img.kimi.ai/img/c8.alamy.com/17a82a66a450f19ef3d451c33b595e5ac280d279.jpg',
+        description: 'Large flour tortilla filled with cilantro lime rice, black beans, fresh cabbage, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and your choice of protein. Finished with our signature house-made sauce and grilled to perfection.',
+        items: [
+          { name: 'Barrio Chicken', price: '$15.90', vegan: false },
+          { name: 'NZ Beef', price: '$16.90', vegan: false },
+          { name: 'Pulled Pork', price: '$17.50', vegan: false },
+          { name: 'Crispy Baja Fish', price: '$17.50', vegan: false },
+          { name: 'BBQ Jackfruit', price: '$15.90', vegan: true },
+          { name: 'Barrio Black Beans', price: '$15.90', vegan: true },
+          { name: 'Veg Fajita', price: '$15.90', vegan: true },
+          { name: 'Grilled Paneer', price: '$16.50', vegan: false },
+        ],
+        customizable: true,
+        removeOptions: ['Cilantro Lime Rice', 'Black Beans', 'Cabbage', 'Pico de Gallo', 'Guacamole', 'Cheese', 'Sour Cream', 'House Sauce'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$3.00' },
+            { name: 'Extra Beef', price: '+$3.00' },
+            { name: 'Extra Pulled Pork', price: '+$3.50' },
+            { name: 'Extra Crispy Fish', price: '+$3.50' },
+            { name: 'Extra Jackfruit', price: '+$3.00' },
+            { name: 'Extra Veg Fajita', price: '+$2.50' },
+            { name: 'Extra Paneer', price: '+$3.00' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$2.50' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra Corn Salsa', price: '+$1.00' },
+            { name: 'Extra Black Beans', price: '+$2.50' },
+            { name: 'Extra Cilantro Lime Rice', price: '+$2.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$1.50' },
+            { name: 'Extra Sour Cream', price: '+$1.50' },
+            { name: 'Extra House Sauce', price: '+$1.00' },
+          ]}
+        ]
+      },
+      tacos: {
+        name: 'Street Tacos',
+        image: 'https://kimi-web-img.kimi.ai/img/t3.ftcdn.net/2bfd864c11646cf26271e64bd02a3e1b2a99c14b.jpg',
+        description: "Warm corn tortillas layered with melted cheese, your choice of protein, fresh coriander, diced onions, and Taco Barrio's signature house sauce. Served with fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and a lime wedge.",
+        items: [
+          { name: '1 Taco', price: '$8.90', proteins: ['Barrio Chicken', 'NZ Beef', 'Pulled Pork', 'Crispy Baja Fish', 'BBQ Jackfruit', 'Barrio Black Beans', 'Grilled Paneer'] },
+          { name: '2 Tacos', price: '$16.90', proteins: ['Your Choice'] },
+          { name: '3 Tacos', price: '$23.90', proteins: ['Your Choice'] },
+        ],
+        customizable: true,
+        removeOptions: ['Cheese', 'Coriander', 'Onions', 'House Sauce', 'Guacamole', 'Sour Cream', 'Pico de Gallo'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$3.00' },
+            { name: 'Extra Beef', price: '+$3.00' },
+            { name: 'Extra Pulled Pork', price: '+$3.50' },
+            { name: 'Extra Fish', price: '+$3.50' },
+            { name: 'Extra Jackfruit', price: '+$3.00' },
+            { name: 'Extra Black Beans', price: '+$2.50' },
+            { name: 'Extra Paneer', price: '+$2.50' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$3.00' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$1.50' },
+            { name: 'Extra Sour Cream', price: '+$1.50' },
+            { name: 'Extra House Sauce', price: '+$1.00' },
+          ]}
+        ]
+      },
+      quesadillas: {
+        name: 'Grilled Quesadillas',
+        image: 'https://kimi-web-img.kimi.ai/img/dressings-sauces.org/c84b801b46e4c4b5817cfde58c4b06b521788bac.jpeg',
+        description: "Toasted flour tortilla filled with melted cheese, your choice of protein, garnished with fresh coriander & onions, and our signature house-made sauce. Grilled until golden and served with fresh daily guacamole and cool & creamy sour cream.",
+        items: [
+          { name: 'Barrio Chicken', price: '$17.90', vegan: false },
+          { name: 'NZ Beef', price: '$18.90', vegan: false },
+          { name: 'Pulled Pork', price: '$19.50', vegan: false },
+          { name: 'Barrio Black Beans', price: '$17.90', vegan: true },
+          { name: 'Veg Fajita', price: '$17.90', vegan: true },
+          { name: 'Grilled Paneer', price: '$17.50', vegan: false },
+        ],
+        customizable: true,
+        removeOptions: ['Cheese', 'Onions', 'Coriander', 'Guacamole', 'Sour Cream', 'House Sauce'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$4.00' },
+            { name: 'Extra Beef', price: '+$4.50' },
+            { name: 'Extra Pulled Pork', price: '+$5.50' },
+            { name: 'Extra Veg Fajita', price: '+$3.50' },
+            { name: 'Extra Paneer', price: '+$3.50' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$3.00' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$2.50' },
+            { name: 'Extra Sour Cream', price: '+$2.50' },
+            { name: 'Extra House Sauce', price: '+$1.50' },
+          ]}
+        ]
+      },
+      nachos: {
+        name: 'Loaded Nachos',
+        image: 'https://kimi-web-img.kimi.ai/img/www.savorytooth.com/a27970215bfd2d4a3ad7cb6594eb2ea49c076d82.jpg',
+        description: "Crispy corn tortilla chips layered with melted cheese, your choice of protein, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and our House Salsa Roja.",
+        items: [
+          { name: 'Barrio Chicken', price: '$16.90', vegan: false },
+          { name: 'NZ Beef', price: '$17.90', vegan: false },
+          { name: 'Pulled Pork', price: '$18.50', vegan: false },
+          { name: 'BBQ Jackfruit', price: '$17.50', vegan: true },
+          { name: 'Barrio Black Beans', price: '$16.90', vegan: true },
+          { name: 'Grilled Paneer', price: '$17.50', vegan: false },
+        ],
+        customizable: true,
+        removeOptions: ['Cheese', 'Pico de Gallo', 'Guacamole', 'Sour Cream', 'House Salsa Roja'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$3.00' },
+            { name: 'Extra Beef', price: '+$3.00' },
+            { name: 'Extra Pulled Pork', price: '+$3.50' },
+            { name: 'Extra Jackfruit', price: '+$3.00' },
+            { name: 'Extra Black Beans', price: '+$2.50' },
+            { name: 'Extra Paneer', price: '+$2.50' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$3.00' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra House Salsa Roja', price: '+$1.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$1.50' },
+            { name: 'Extra Sour Cream', price: '+$1.50' },
+          ]}
+        ]
+      },
+      bowls: {
+        name: 'Naked Burritos',
+        image: 'https://kimi-web-img.kimi.ai/img/cdn.loveandlemons.com/deb01e07bea35a1502fe794db49978206cfd1633.jpg',
+        description: "All the bold flavours of our Signature Burritos, served in a bowl with crispy tortilla chips. Cilantro lime rice, black beans, fresh cabbage, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and your choice of protein.",
+        items: [
+          { name: 'Barrio Chicken', price: '$15.90', vegan: false },
+          { name: 'NZ Beef', price: '$16.90', vegan: false },
+          { name: 'Pulled Pork', price: '$17.50', vegan: false },
+          { name: 'Crispy Baja Fish', price: '$17.50', vegan: false },
+          { name: 'BBQ Jackfruit', price: '$16.50', vegan: true },
+          { name: 'Barrio Black Beans', price: '$15.90', vegan: true },
+          { name: 'Veg Fajita', price: '$15.90', vegan: true },
+          { name: 'Grilled Paneer', price: '$16.50', vegan: false },
+        ],
+        customizable: true,
+        removeOptions: ['Cilantro Lime Rice', 'Black Beans', 'Cabbage', 'Pico de Gallo', 'Guacamole', 'Cheese', 'Sour Cream', 'House Sauce'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$3.00' },
+            { name: 'Extra Beef', price: '+$3.00' },
+            { name: 'Extra Pulled Pork', price: '+$3.50' },
+            { name: 'Extra Crispy Fish', price: '+$3.50' },
+            { name: 'Extra BBQ Jackfruit', price: '+$3.00' },
+            { name: 'Extra Barrio Black Beans', price: '+$2.50' },
+            { name: 'Extra Veg Fajita', price: '+$2.50' },
+            { name: 'Extra Grilled Paneer', price: '+$2.50' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$3.00' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra Corn Salsa', price: '+$1.00' },
+            { name: 'Extra Black Beans', price: '+$2.50' },
+            { name: 'Extra Cilantro Lime Rice', price: '+$2.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$1.50' },
+            { name: 'Extra Sour Cream', price: '+$1.50' },
+            { name: 'Extra House Sauce', price: '+$1.00' },
+          ]}
+        ]
+      },
+      fries: {
+        name: 'Loaded Fries',
+        image: 'https://kimi-web-img.kimi.ai/img/realfoodbydad.com/7ba125d1ec323f3011e88d24bd9054cd49bb5a14.jpg',
+        description: "Golden crispy fries loaded with melted cheese, your choice of protein, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and our House Salsa Roja. Finished with fresh coriander for a bold, flavour-packed finish. (Limited Only)",
+        items: [
+          { name: 'Barrio Chicken', price: '$15.90', vegan: false },
+          { name: 'NZ Beef', price: '$16.90', vegan: false },
+          { name: 'Pulled Pork', price: '$17.50', vegan: false },
+          { name: 'BBQ Jackfruit', price: '$16.50', vegan: true },
+          { name: 'Barrio Black Beans', price: '$15.90', vegan: true },
+          { name: 'Grilled Paneer', price: '$16.50', vegan: false },
+        ],
+        customizable: true,
+        removeOptions: ['Cheese', 'Pico de Gallo', 'Guacamole', 'Sour Cream', 'House Salsa Roja', 'House Sauce', 'Coriander'],
+        extras: [
+          { category: 'Extra Protein', items: [
+            { name: 'Extra Chicken', price: '+$3.00' },
+            { name: 'Extra Beef', price: '+$3.00' },
+            { name: 'Extra Pulled Pork', price: '+$3.50' },
+            { name: 'Extra Jackfruit', price: '+$3.00' },
+            { name: 'Extra Black Beans', price: '+$2.50' },
+            { name: 'Extra Paneer', price: '+$2.50' },
+          ]},
+          { category: 'Fresh Ingredients', items: [
+            { name: 'Extra Guacamole', price: '+$3.00' },
+            { name: 'Extra Pico de Gallo', price: '+$1.00' },
+            { name: 'Extra House Salsa Roja', price: '+$1.00' },
+            { name: 'Extra Jalapenos', price: '+$1.00' },
+          ]},
+          { category: 'Extras', items: [
+            { name: 'Extra Cheese', price: '+$1.50' },
+            { name: 'Extra Sour Cream', price: '+$1.50' },
+            { name: 'Extra House Sauce', price: '+$1.00' },
+          ]}
+        ]
+      },
+      drinks: {
+        name: 'Drinks & Meals',
+        image: '',
+        description: 'Add a drink to any meal or enjoy on its own',
+        items: [
+          { name: 'Make it a Meal with Cold Drinks', price: '+$6.00', note: 'Coca Cola, L&P, Sprite, Coca Cola Zero Sugar, Fanta' },
+          { name: 'Make it a Meal with Jarritos', price: '+$9.00', note: 'Mango, Pineapple, Mandarin, Mexican Cola, Guava' },
+          { name: '330 ML Cold Drinks', price: '$3.50', note: 'Coca Cola, L&P, Sprite, Coca Cola Zero Sugar, Fanta' },
+          { name: '375 ML Bundaberg', price: '$5.50', note: 'Ginger Beer, Lemon Lime Bitters' },
+          { name: 'Pure NZ Spring Water', price: '$2.00', note: 'Still' },
+        ]
+      }
+    };
+
+    let expandedCategory = 'burritos';
+    let expandedItem = null;
+
+    function renderTabs() {
+      const tabsContainer = document.getElementById('categoryTabs');
+      tabsContainer.innerHTML = Object.entries(menuCategories).map(([key, category]) => {
+        const label = category.name.split(' ')[0];
+        return `<button class="category-tab ${key === expandedCategory ? 'active' : ''}" data-key="${key}">${label}</button>`;
+      }).join('');
+
+      tabsContainer.querySelectorAll('.category-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          expandedCategory = tab.dataset.key;
+          expandedItem = null;
+          renderTabs();
+          renderMenu();
+        });
+      });
+    }
+
+    function renderMenu() {
+      const contentContainer = document.getElementById('menuContent');
+      contentContainer.innerHTML = Object.entries(menuCategories).map(([key, category]) => {
+        const isActive = key === expandedCategory;
+        const imgHtml = category.image ? `<img src="${category.image}" alt="${category.name}" loading="lazy">` : '';
+
+        let itemsHtml = '';
+        if (key === 'drinks') {
+          itemsHtml = `<div class="menu-grid">${category.items.map((item, idx) => `
+            <div class="menu-card" style="cursor: default;">
+              <div class="menu-card-header">
+                <div style="flex: 1;">
+                  <div class="menu-card-title">${item.name}</div>
+                  ${item.note ? `<p class="menu-card-note">${item.note}</p>` : ''}
+                </div>
+                <div class="menu-card-price">${item.price}</div>
+              </div>
+            </div>
+          `).join('')}</div>`;
+        } else {
+          itemsHtml = `<div class="menu-grid">${category.items.map((item, idx) => {
+            const itemKey = `${key}-${idx}`;
+            const isExpanded = expandedItem === itemKey;
+            const veganBadge = item.vegan ? '<span class="vegan-badge">V</span>' : '';
+
+            let detailsHtml = '';
+            if (isExpanded) {
+              let proteinsHtml = '';
+              if (item.proteins) {
+                proteinsHtml = `
+                  <div class="detail-section">
+                    <div class="detail-title">Choose Your Protein:</div>
+                    <div class="tag-list">
+                      ${item.proteins.map(p => `<span class="tag">${p}</span>`).join('')}
+                    </div>
+                  </div>
+                `;
+              }
+
+              let removeHtml = '';
+              if (category.removeOptions) {
+                removeHtml = `
+                  <div class="detail-section">
+                    <div class="detail-title">Make It Your Way (Remove at no extra cost):</div>
+                    <div class="tag-list">
+                      ${category.removeOptions.map(opt => `<span class="tag tag-alt">No ${opt}</span>`).join('')}
+                    </div>
+                  </div>
+                `;
+              }
+
+              let extrasHtml = '';
+              if (category.extras) {
+                extrasHtml = `
+                  <div class="detail-section">
+                    <div class="detail-title">Add Extras:</div>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                      ${category.extras.map(group => `
+                        <div>
+                          <div class="extra-group-title">${group.category}</div>
+                          <div class="tag-list">
+                            ${group.items.map(extra => `<span class="tag tag-outline">${extra.name} <span class="tag-price">${extra.price}</span></span>`).join('')}
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                `;
+              }
+
+              detailsHtml = `<div class="menu-details open">${proteinsHtml}${removeHtml}${extrasHtml}</div>`;
+            }
+
+            return `
+              <div>
+                <div class="menu-card" data-item="${itemKey}">
+                  <div class="menu-card-header">
+                    <div style="flex: 1;">
+                      <div class="menu-card-title">${item.name} ${veganBadge}</div>
+                    </div>
+                    <div class="menu-card-price">${item.price}</div>
+                  </div>
+                </div>
+                ${detailsHtml}
+              </div>
+            `;
+          }).join('')}</div>`;
+        }
+
+        return `
+          <div class="menu-category ${isActive ? 'active' : ''}" data-category="${key}">
+            <div class="category-header">
+              ${imgHtml}
+              <div class="category-header-text">
+                <h3>${category.name}</h3>
+                <p>${category.description}</p>
+              </div>
+            </div>
+            ${itemsHtml}
+          </div>
+        `;
+      }).join('');
+
+      // Attach click handlers for expandable items
+      contentContainer.querySelectorAll('.menu-card[data-item]').forEach(card => {
+        card.addEventListener('click', () => {
+          const itemKey = card.dataset.item;
+          expandedItem = expandedItem === itemKey ? null : itemKey;
+          renderMenu();
+        });
+      });
+    }
+
+    // Initialize
+    renderTabs();
+    renderMenu();
+  </script> -->
+</body>
+</html>
