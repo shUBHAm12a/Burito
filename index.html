@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/logo-mark.png">
-  <link rel="stylesheet" href="burito.css">
   <title>Taco Barrio - Good Tacos. Good Vibes.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="burito.css">
   <!-- <style>
     :root {
       --teal: #145046;
       --teal-dark: #0d3d3a;
-      --cream: #f8e8c3;
+      --cream: #f8e8c3;image.png
       --orange: #e46127;
       --yellow: #fcb31c;
       --red: #94291f;
@@ -594,16 +598,94 @@
     <a href="#" class="logo" aria-label="Taco Barrio home">
       <img src="assets/logo-mark.png" alt="Taco Barrio — Fresh Mexican Street Food" class="logo-img logo-mark">
     </a>
-    <div class="nav-links">
-      <a href="#story">Story</a>
-      <a href="#menu">Menu</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button type="button" class="cart-btn" id="cartOpenBtn" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6.5 5.5c2.7-2.7 7.8-2.7 10.5 0s2.7 7.8 0 10.5l-4.2 4.2c-.7.7-1.9.7-2.6 0L2.3 12.3c-.7-.7-.7-1.9 0-2.6l4.2-4.2z"/>
+          <path d="M5.8 13.2l7.4-7.4"/>
+          <path d="M8.4 15.8l7.4-7.4"/>
+          <path d="M11 18.4l7.4-7.4"/>
+          <path d="M8.1 7.1c.5.8 1.1 1.3 2 1.7"/>
+          <path d="M6.1 9.1c.7.9 1.4 1.6 2.3 2.2"/>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-drawer-top">
+      <a href="#contact" class="cart-find-btn" id="cartFindBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2C8 2 5 5 5 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <span>Find a Taco Barrio</span>
+      </a>
+      <button type="button" class="cart-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">
+        <div class="cart-empty-illustration" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="95" rx="28" ry="6" fill="#d4cfc0" opacity="0.5"/>
+            <path d="M30 55c0-18 13-32 30-32s30 14 30 32c0 8-3 15-8 20H38c-5-5-8-12-8-20z" fill="#fcb31c" stroke="#03322c" stroke-width="2.5"/>
+            <path d="M35 52c8-6 18-8 25-8s17 2 25 8" stroke="#e46127" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="48" cy="58" r="3" fill="#03322c"/>
+            <circle cx="72" cy="58" r="3" fill="#03322c"/>
+            <path d="M52 68c4 3 12 3 16 0" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 48c-6-2-10 2-8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M95 48c6-2 10 2 8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="cart-empty-title">Your bag is empty</h2>
+        <p class="cart-empty-text">It's lonely in here</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <button type="button" class="cart-order-btn" id="cartOrderBtn">Order Now</button>
+    </div>
+  </aside>
 
   <!-- Hero Section -->
   <section class="hero">
     <img src="https://i.pinimg.com/1200x/48/48/ff/4848ff49381c2da1b62ccfa1f6338fe2.jpg" alt="Mexican street food" class="hero-bg-img">
+
+    <div class="hero-stickers" aria-hidden="true">
+      <svg class="brand-sticker sticker-squiggle" viewBox="0 0 180 80">
+        <path d="M12 49c8 18 33 14 48-9 8-12 24-18 30-1 5 15 24 10 40-5 10-10 20-9 23 7 2 9 8 13 15 9" />
+      </svg>
+
+      <svg class="brand-sticker sticker-label" viewBox="0 0 180 90">
+        <rect x="12" y="18" width="156" height="54" rx="18" />
+      </svg>
+
+      <svg class="brand-sticker sticker-burst" viewBox="0 0 120 120">
+        <path d="M60 9l13 21 25-3-3 25 20 14-23 10-4 25-22-12-21 14-7-24-24-7 18-17-6-24 25 1z" />
+      </svg>
+
+      <svg class="brand-sticker sticker-taco" viewBox="0 0 180 110">
+        <path class="taco-shell" d="M19 80c5-39 39-66 81-61 37 4 62 31 65 67z" />
+        <path class="taco-fold" d="M25 78l130-35" />
+        <path class="taco-topping" d="M41 49c9-9 20 3 30-5 9-7 16-10 28 0 12 10 20-3 31 6" />
+        <path class="taco-topping taco-salsa" d="M39 62c10-6 22 5 34 0 12-5 18-7 30 2 13 8 24-5 37 4" />
+        <circle cx="57" cy="67" r="2" />
+        <circle cx="91" cy="58" r="2" />
+        <circle cx="120" cy="69" r="2" />
+      </svg>
+
+      <svg class="brand-sticker sticker-dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="36" />
+      </svg>
+    </div>
     
     <div class="hero-content">
       <img src="assets/logo-mark.png" alt="Taco Barrio — Fresh Mexican Street Food" class="hero-logo logo-mark">
@@ -693,6 +775,9 @@
       <h2 class="section-title">Visit Us</h2>
 
       <div class="contact-grid">
+        <img src="assets/logo-mascot.png" alt="Taco Barrio Mascot" class="contact-sticker sticker-left">
+        <img src="assets/logo-badge.png" alt="Taco Barrio Badge" class="contact-sticker sticker-right">
+
         <div class="contact-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -724,8 +809,26 @@
 
   <!-- Footer -->
   <footer>
-    <img src="assets/logo-secondary.png" alt="Taco Barrio" class="footer-logo">
-    <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+    <div class="footer-pattern" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <svg class="footer-sticker footer-sticker-left" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M60 9l13 21 25-3-3 25 20 14-23 10-4 25-22-12-21 14-7-24-24-7 18-17-6-24 25 1z" />
+    </svg>
+
+    <svg class="footer-sticker footer-sticker-right" viewBox="0 0 180 80" aria-hidden="true">
+      <path d="M12 49c8 18 33 14 48-9 8-12 24-18 30-1 5 15 24 10 40-5 10-10 20-9 23 7 2 9 8 13 15 9" />
+    </svg>
+
+    <div class="footer-inner">
+      <img src="assets/logo-secondary.png" alt="Taco Barrio" class="footer-logo">
+      <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+    </div>
   </footer>
 
   <script src="burito.js"></script>
