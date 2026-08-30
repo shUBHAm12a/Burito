@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets/logo-mark.png">
-  <link rel="stylesheet" href="burito.css">
   <title>Taco Barrio - Good Tacos. Good Vibes.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="burito.css">
   <!-- <style>
     :root {
       --teal: #145046;
       --teal-dark: #0d3d3a;
-      --cream: #f8e8c3;
+      --cream: #f8e8c3;image.png
       --orange: #e46127;
       --yellow: #fcb31c;
       --red: #94291f;
@@ -590,27 +594,89 @@
 <body> -->
 
   <!-- Navigation -->
-  <nav>
+  <nav class="site-nav">
     <a href="#" class="logo" aria-label="Taco Barrio home">
       <img src="assets/logo-mark.png" alt="Taco Barrio — Fresh Mexican Street Food" class="logo-img logo-mark">
     </a>
-    <div class="nav-links">
-      <a href="#story">Story</a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
       <a href="#menu">Menu</a>
+      <a href="#story">About Us</a>
       <a href="#contact">Contact</a>
     </div>
+
+    <div class="nav-actions">
+      <button type="button" class="order-now-btn" id="cartOpenBtn" data-cart-open aria-label="Open cart">
+        <span>Order Now</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </button>
+
+      <button type="button" class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-drawer-top">
+      <a href="#contact" class="cart-find-btn" id="cartFindBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2C8 2 5 5 5 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <span>Find a Taco Barrio</span>
+      </a>
+      <button type="button" class="cart-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">
+        <div class="cart-empty-illustration" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="95" rx="28" ry="6" fill="#d4cfc0" opacity="0.5"/>
+            <path d="M30 55c0-18 13-32 30-32s30 14 30 32c0 8-3 15-8 20H38c-5-5-8-12-8-20z" fill="#fcb31c" stroke="#03322c" stroke-width="2.5"/>
+            <path d="M35 52c8-6 18-8 25-8s17 2 25 8" stroke="#e46127" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="48" cy="58" r="3" fill="#03322c"/>
+            <circle cx="72" cy="58" r="3" fill="#03322c"/>
+            <path d="M52 68c4 3 12 3 16 0" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 48c-6-2-10 2-8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M95 48c6-2 10 2 8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="cart-empty-title">Your bag is empty</h2>
+        <p class="cart-empty-text">It's lonely in here</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <button type="button" class="cart-order-btn" id="cartOrderBtn">Order Now</button>
+    </div>
+  </aside>
 
   <!-- Hero Section -->
   <section class="hero">
     <img src="https://i.pinimg.com/1200x/48/48/ff/4848ff49381c2da1b62ccfa1f6338fe2.jpg" alt="Mexican street food" class="hero-bg-img">
+
+    <!-- <img src="assets/logo-badge.png" alt="" class="hero-badge" aria-hidden="true"> -->
     
     <div class="hero-content">
-      <img src="assets/logo-mark.png" alt="Taco Barrio — Fresh Mexican Street Food" class="hero-logo logo-mark">
-      <h1>Good Tacos. Good Vibes.</h1>
-      <p class="hero-tagline">One Barrio.</p>
-      <div class="hero-divider"></div>
-      <p>Fresh Mexican street food with bold flavours, fresh ingredients, and the kind of spirit that brings people together.</p>
+      <!-- <img src="assets/logo-secondary.png" alt="Taco Barrio - Fresh Mexican Street Food" class="hero-logo"> -->
+      <p class="hero-kicker">Fresh. Authentic. Delicious.</p>
+      <h1>Mexican Street Food <span>Made Fresh</span></h1>
+      <p>Bold flavors. Fresh ingredients. Made the traditional way. Welcome to Taco Barrio - where every bite takes you to the streets of Mexico.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="hero-btn hero-btn-primary">View Menu</a>
+        <button type="button" class="hero-btn hero-btn-secondary" data-cart-open>Order Now</button>
+      </div>
     </div>
   </section>
 
@@ -668,11 +734,23 @@
     <path d="M0,40 Q300,80 600,40 T1200,40 L1200,120 L0,120 Z" />
   </svg>
 
+  <!-- Menu Item Modal -->
+  <div class="menu-modal-overlay" id="menuModalOverlay">
+    <div class="menu-modal" id="menuModal">
+      <button type="button" class="menu-modal-close" id="menuModalClose" aria-label="Close">&times;</button>
+      <div class="menu-modal-header" id="menuModalHeader"></div>
+      <div class="menu-modal-body" id="menuModalBody"></div>
+    </div>
+  </div>
+
   <!-- Menu Section -->
   <section id="menu" class="menu">
     <div class="menu-inner">
-      <h2 class="section-title">Our Menu</h2>
-      <p class="menu-subtitle">All served with bold flavour and barrio energy</p>
+      <div class="menu-heading">
+        <span class="menu-squiggle" aria-hidden="true"></span>
+        <h2 class="section-title">Featured Menu</h2>
+        <p class="menu-subtitle">A taste of our most loved street food.</p>
+      </div>
 
       <!-- Category Tabs -->
       <div class="category-tabs" id="categoryTabs"></div>
@@ -680,10 +758,6 @@
       <!-- Menu Categories -->
       <div id="menuContent"></div>
 
-      <div class="tip-box">
-        <p><strong>Customize your order</strong> — Remove or add ingredients at no extra cost!</p>
-        <p>Add extras like guacamole, extra protein, jalapenos and more to make it your way.</p>
-      </div>
     </div>
   </section>
 
@@ -693,6 +767,9 @@
       <h2 class="section-title">Visit Us</h2>
 
       <div class="contact-grid">
+        <img src="assets/logo-mascot.png" alt="Taco Barrio Mascot" class="contact-sticker sticker-left">
+        <img src="assets/logo-badge.png" alt="Taco Barrio Badge" class="contact-sticker sticker-right">
+
         <div class="contact-card">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -724,8 +801,26 @@
 
   <!-- Footer -->
   <footer>
-    <img src="assets/logo-secondary.png" alt="Taco Barrio" class="footer-logo">
-    <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+    <div class="footer-pattern" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <svg class="footer-sticker footer-sticker-left" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M60 9l13 21 25-3-3 25 20 14-23 10-4 25-22-12-21 14-7-24-24-7 18-17-6-24 25 1z" />
+    </svg>
+
+    <svg class="footer-sticker footer-sticker-right" viewBox="0 0 180 80" aria-hidden="true">
+      <path d="M12 49c8 18 33 14 48-9 8-12 24-18 30-1 5 15 24 10 40-5 10-10 20-9 23 7 2 9 8 13 15 9" />
+    </svg>
+
+    <div class="footer-inner">
+      <img src="assets/logo-secondary.png" alt="Taco Barrio" class="footer-logo">
+      <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+    </div>
   </footer>
 
   <script src="burito.js"></script>
