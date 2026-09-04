@@ -594,7 +594,6 @@ const cartOpenBtns = document.querySelectorAll("[data-cart-open]");
 const cartCloseBtn = document.getElementById("cartCloseBtn");
 const cartOverlay = document.getElementById("cartOverlay");
 const cartDrawer = document.getElementById("cartDrawer");
-const cartOrderBtn = document.getElementById("cartOrderBtn");
 const cartFindBtn = document.getElementById("cartFindBtn");
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 const navLinks = document.getElementById("navLinks");
@@ -643,11 +642,6 @@ cartOpenBtns.forEach((btn) => {
 });
 cartCloseBtn.addEventListener("click", closeCart);
 cartOverlay.addEventListener("click", closeCart);
-
-cartOrderBtn.addEventListener("click", () => {
-  closeCart();
-  document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
-});
 
 cartFindBtn.addEventListener("click", closeCart);
 
