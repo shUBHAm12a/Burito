@@ -43,7 +43,8 @@ body {
 
 /* Navigation */
 .site-nav {
-  background-color: var(--teal);
+  /* background-color: var(--teal); */
+  background-color: var(--cream);
   padding: 0.85rem 2rem;
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -79,7 +80,7 @@ body {
 }
 
 .logo-mark {
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .logo:hover .logo-img {
@@ -96,6 +97,7 @@ body {
 
 .nav-links a {
   color: var(--cream);
+  color: var(--yellow);
   font-family: var(--font-body);
   text-decoration: none;
   font-size: 0.78rem;
@@ -121,7 +123,8 @@ body {
 .hamburger-menu span {
   width: 28px;
   height: 3px;
-  background-color: var(--red);
+  /* background-color: var(--red); */
+  background-color: forestgreen;
   border-radius: 2px;
   transition: all 0.3s ease;
   display: block;
@@ -724,8 +727,16 @@ body.cart-open {
 }
 
 /* Menu Section */
+.menu-section-wrapper {
+  padding: 4.5rem 1.5rem;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: 80px;
+}
+
 .menu {
-  background:
+  /* background:
     radial-gradient(
       circle at 12% 14%,
       rgba(252, 179, 28, 0.08),
@@ -736,8 +747,9 @@ body.cart-open {
       rgba(248, 232, 195, 0.06),
       transparent 12rem
     ),
-    var(--teal);
+    var(--teal); */
   padding: 4.5rem 1.5rem;
+  display: flex;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
@@ -1360,7 +1372,10 @@ footer p {
   color: var(--yellow);
   font-size: 1.25rem;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .social-links a:hover,
@@ -1483,7 +1498,7 @@ footer p {
     order: 3;
     /* flex-wrap: wrap; */
     gap: 0.75rem 1.25rem;
-    padding-top: 0.25rem;
+    /* padding-top: 0.25rem; */
   }
 
   .order-now-btn {
