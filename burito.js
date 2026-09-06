@@ -1,10 +1,6 @@
 const menuCategories = {
   burritos: {
-    name: "Signature Grilled Burritos",
-    image:
-      "https://kimi-web-img.kimi.ai/img/c8.alamy.com/17a82a66a450f19ef3d451c33b595e5ac280d279.jpg",
-    description:
-      "Large flour tortilla filled with cilantro lime rice, black beans, fresh cabbage, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and your choice of protein. Finished with our signature house-made sauce and grilled to perfection.",
+    name: "Signature  Burritos",
     items: [
       { name: "Barrio Chicken", price: "$15.90", vegan: false },
       { name: "NZ Beef", price: "$16.90", vegan: false },
@@ -62,10 +58,6 @@ const menuCategories = {
   },
   tacos: {
     name: "Street Tacos",
-    image:
-      "https://kimi-web-img.kimi.ai/img/t3.ftcdn.net/2bfd864c11646cf26271e64bd02a3e1b2a99c14b.jpg",
-    description:
-      "Warm corn tortillas layered with melted cheese, your choice of protein, fresh coriander, diced onions, and Taco Barrio's signature house sauce. Served with fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and a lime wedge.",
     items: [
       {
         name: "1 Taco",
@@ -126,10 +118,6 @@ const menuCategories = {
   },
   quesadillas: {
     name: "Grilled Quesadillas",
-    image:
-      "https://kimi-web-img.kimi.ai/img/dressings-sauces.org/c84b801b46e4c4b5817cfde58c4b06b521788bac.jpeg",
-    description:
-      "Toasted flour tortilla filled with melted cheese, your choice of protein, garnished with fresh coriander & onions, and our signature house-made sauce. Grilled until golden and served with fresh daily guacamole and cool & creamy sour cream.",
     items: [
       { name: "Barrio Chicken", price: "$17.90", vegan: false },
       { name: "NZ Beef", price: "$18.90", vegan: false },
@@ -178,10 +166,6 @@ const menuCategories = {
   },
   nachos: {
     name: "Loaded Nachos",
-    image:
-      "https://kimi-web-img.kimi.ai/img/www.savorytooth.com/a27970215bfd2d4a3ad7cb6594eb2ea49c076d82.jpg",
-    description:
-      "Crispy corn tortilla chips layered with melted cheese, your choice of protein, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and our House Salsa Roja.",
     items: [
       { name: "Barrio Chicken", price: "$16.90", vegan: false },
       { name: "NZ Beef", price: "$17.90", vegan: false },
@@ -230,10 +214,6 @@ const menuCategories = {
   },
   bowls: {
     name: "Naked Burritos",
-    image:
-      "https://kimi-web-img.kimi.ai/img/cdn.loveandlemons.com/deb01e07bea35a1502fe794db49978206cfd1633.jpg",
-    description:
-      "All the bold flavours of our Signature Burritos, served in a bowl with crispy tortilla chips. Cilantro lime rice, black beans, fresh cabbage, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and your choice of protein.",
     items: [
       { name: "Barrio Chicken", price: "$15.90", vegan: false },
       { name: "NZ Beef", price: "$16.90", vegan: false },
@@ -292,10 +272,6 @@ const menuCategories = {
   },
   fries: {
     name: "Loaded Fries",
-    image:
-      "https://kimi-web-img.kimi.ai/img/realfoodbydad.com/7ba125d1ec323f3011e88d24bd9054cd49bb5a14.jpg",
-    description:
-      "Golden crispy fries loaded with melted cheese, your choice of protein, fresh pico de gallo, fresh daily guacamole, cool & creamy sour cream, and our House Salsa Roja. Finished with fresh coriander for a bold, flavour-packed finish. (Limited Only)",
     items: [
       { name: "Barrio Chicken", price: "$15.90", vegan: false },
       { name: "NZ Beef", price: "$16.90", vegan: false },
@@ -347,37 +323,29 @@ const menuCategories = {
   },
   drinks: {
     name: "Drinks & Meals",
-    image: "",
-    description: "Add a drink to any meal or enjoy on its own",
     items: [
       {
         name: "Make it a Meal with Cold Drinks",
         price: "+$6.00",
-        note: "Coca Cola, L&P, Sprite, Coca Cola Zero Sugar, Fanta",
       },
       {
         name: "Make it a Meal with Jarritos",
         price: "+$9.00",
-        note: "Mango, Pineapple, Mandarin, Mexican Cola, Guava",
       },
       {
         name: "330 ML Cold Drinks",
         price: "$3.50",
-        note: "Coca Cola, L&P, Sprite, Coca Cola Zero Sugar, Fanta",
       },
       {
         name: "375 ML Bundaberg",
         price: "$5.50",
-        note: "Ginger Beer, Lemon Lime Bitters",
       },
-      { name: "Pure NZ Spring Water", price: "$2.00", note: "Still" },
+      { name: "Pure NZ Spring Water", price: "$2.00" },
     ],
   },
 };
 
 let expandedCategory = "burritos";
-const fallbackMenuImage =
-  "https://i.pinimg.com/1200x/48/48/ff/4848ff49381c2da1b62ccfa1f6338fe2.jpg";
 
 // Modal elements
 const menuModalOverlay = document.getElementById("menuModalOverlay");
@@ -389,11 +357,9 @@ const menuModalBody = document.getElementById("menuModalBody");
 function openItemModal(categoryKey, itemIdx) {
   const category = menuCategories[categoryKey];
   const item = category.items[itemIdx];
-  const categoryImage = category.image || fallbackMenuImage;
 
   // Build header
   menuModalHeader.innerHTML = `
-      <img src="${categoryImage}" alt="${item.name}" class="menu-modal-header-img">
       <div class="menu-modal-header-text">
         <h3>${item.name} ${item.vegan ? '<span class="vegan-badge">V</span>' : ""}</h3>
         <div class="modal-price">${item.price}</div>
@@ -504,8 +470,6 @@ function renderMenu() {
   contentContainer.innerHTML = Object.entries(menuCategories)
     .map(([key, category]) => {
       const isActive = key === expandedCategory;
-      const categoryImage = category.image || fallbackMenuImage;
-      const imgHtml = `<img src="${categoryImage}" alt="${category.name}" loading="lazy">`;
 
       let itemsHtml = "";
       if (key === "drinks") {
@@ -513,14 +477,8 @@ function renderMenu() {
           .map(
             (item, idx) => `
           <div class="menu-card menu-card-static">
-            <div class="menu-card-media">
-              <img src="${categoryImage}" alt="${item.name}" loading="lazy">
-            </div>
             <div class="menu-card-header">
-              <div style="flex: 1;">
-                <div class="menu-card-title">${item.name}</div>
-                ${item.note ? `<p class="menu-card-note">${item.note}</p>` : ""}
-              </div>
+              <div class="menu-card-title">${item.name}</div>
               <div class="menu-card-price">${item.price}</div>
             </div>
           </div>
@@ -537,14 +495,8 @@ function renderMenu() {
             return `
             <div class="menu-item">
               <div class="menu-card" data-category="${key}" data-idx="${idx}" role="button" tabindex="0">
-                <div class="menu-card-media">
-                  <img src="${categoryImage}" alt="${item.name}" loading="lazy">
-                </div>
                 <div class="menu-card-header">
-                  <div style="flex: 1;">
-                    <div class="menu-card-title">${item.name} ${veganBadge}</div>
-                    <p class="menu-card-note">${category.description}</p>
-                  </div>
+                  <div class="menu-card-title">${item.name} ${veganBadge}</div>
                   <div class="menu-card-price">${item.price}</div>
                 </div>
               </div>
@@ -557,10 +509,8 @@ function renderMenu() {
       return `
         <div class="menu-category ${isActive ? "active" : ""}" data-category="${key}">
           <div class="category-header">
-            ${imgHtml}
             <div class="category-header-text">
               <h3>${category.name}</h3>
-              <p>${category.description}</p>
             </div>
           </div>
           ${itemsHtml}
