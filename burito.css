@@ -72,11 +72,12 @@ body {
 }
 
 .logo-img {
-  height: 92px;
+  height: 72px;
   width: 72px;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.3s ease;
+  border-radius: 50%;
 }
 
 .logo-mark {
@@ -1476,8 +1477,8 @@ footer p {
 
 @media (max-width: 768px) {
   .logo-img {
-    height: 78px;
-    width: 64px;
+    height: 90px;
+    width: 90px;
   }
 
   .hero {
