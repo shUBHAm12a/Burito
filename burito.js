@@ -321,6 +321,26 @@ const menuCategories = {
       },
     ],
   },
+  sides: {
+    name: "Sides",
+    items: [
+      { name: "Fries", price: "$6.20", vegan: true },
+      { name: "Loaded Cheese Fries", price: "$10.40", vegan: false },
+      { name: "Spicy Loaded Fries 🌶️", price: "$13.55", vegan: false },
+      { name: "Street-Style Loaded Corn Chips", price: "$12.50", vegan: false },
+      { name: "Jalapeño Cheese Bites (6)", price: "$10.40", vegan: false },
+      { name: "Broccoli Cheese Bites (6)", price: "$11.45", vegan: false },
+      { name: "Corn & Cheese Quesadilla", price: "$9.35", vegan: false },
+      { name: "Corn Chips & Guacamole", price: "$9.35", vegan: true },
+      { name: "Corn Chips & Salsa Roja", price: "$7.25", vegan: true },
+      { name: "Corn Chips", price: "$5.15", vegan: true },
+      { name: "Side of Guacamole", price: "$3.15", vegan: true },
+      { name: "Side of Salsa Roja", price: "$2.10", vegan: true },
+      { name: "Side of Sour Cream", price: "$2.63", vegan: false },
+      { name: "Side of Rice", price: "$3.68", vegan: true },
+    ],
+    customizable: false,
+  },
   drinks: {
     name: "Drinks & Meals",
     items: [
@@ -484,6 +504,25 @@ function renderMenu() {
           </div>
         `,
           )
+          .join("")}</div>`;
+      } else if (key === "sides") {
+        itemsHtml = `<div class="menu-grid">${category.items
+          .map((item, idx) => {
+            const veganBadge = item.vegan
+              ? '<span class="vegan-badge">V</span>'
+              : "";
+
+            return `
+            <div class="menu-item">
+              <div class="menu-card menu-card-static">
+                <div class="menu-card-header">
+                  <div class="menu-card-title">${item.name} ${veganBadge}</div>
+                  <div class="menu-card-price">${item.price}</div>
+                </div>
+              </div>
+            </div>
+          `;
+          })
           .join("")}</div>`;
       } else {
         itemsHtml = `<div class="menu-grid">${category.items
