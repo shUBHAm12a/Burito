@@ -460,18 +460,22 @@ function closeItemModal() {
   document.body.style.overflow = "";
 }
 
-menuModalClose.addEventListener("click", closeItemModal);
-menuModalOverlay.addEventListener("click", (e) => {
-  if (e.target === menuModalOverlay) closeItemModal();
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && menuModalOverlay.classList.contains("is-open")) {
-    closeItemModal();
-  }
-});
+if (menuModalClose) {
+  menuModalClose.addEventListener("click", closeItemModal);
+  menuModalOverlay.addEventListener("click", (e) => {
+    if (e.target === menuModalOverlay) closeItemModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuModalOverlay.classList.contains("is-open")) {
+      closeItemModal();
+    }
+  });
+}
 
 function renderTabs() {
   const tabsContainer = document.getElementById("categoryTabs");
+  if (!tabsContainer) return;
+  
   tabsContainer.innerHTML = Object.entries(menuCategories)
     .map(([key, category]) => {
       const label = category.name.split(" ")[0];
@@ -490,6 +494,8 @@ function renderTabs() {
 
 function renderMenu() {
   const contentContainer = document.getElementById("menuContent");
+  if (!contentContainer) return;
+
   contentContainer.innerHTML = Object.entries(menuCategories)
     .map(([key, category]) => {
       const isActive = key === expandedCategory;
