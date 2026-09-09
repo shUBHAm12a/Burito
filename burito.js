@@ -344,23 +344,26 @@ const menuCategories = {
   drinks: {
     name: "Drinks & Meals",
     items: [
-      {
-        name: "Make it a Meal with Cold Drinks",
-        price: "+$6.00",
-      },
-      {
-        name: "Make it a Meal with Jarritos",
-        price: "+$9.00",
-      },
-      {
-        name: "330 ML Cold Drinks",
-        price: "$3.50",
-      },
-      {
-        name: "375 ML Bundaberg",
-        price: "$5.50",
-      },
-      { name: "Pure NZ Spring Water", price: "$2.00" },
+      { name: "Make it a Meal with Cold Drinks", price: "+$6.00" },
+      { name: "Make it a Meal with Jarritos", price: "+$9.00" },
+      { name: "COKE CLASSIC 330ML", price: "$3.68" },
+      { name: "COKE NO SUGAR 330ML", price: "$3.68" },
+      { name: "SPRITE 330ML", price: "$3.68" },
+      { name: "SPRITE ZERO SUGAR 330ML", price: "$3.68" },
+      { name: "FANTA ORANGE 330ML", price: "$3.68" },
+      { name: "L & P 330ML", price: "$3.68" },
+      { name: "PEPSI 330ML", price: "$3.50" },
+      { name: "JARRITOS MEXICAN COLA 370ML", price: "$7.35" },
+      { name: "JARRITOS MANGO 370ML", price: "$7.35" },
+      { name: "JARRITOS GUAVA 370ML", price: "$7.35" },
+      { name: "JARRITOS PINEAPPLE 370ML", price: "$7.35" },
+      { name: "JARRITOS MANDARIN 370ML", price: "$7.35" },
+      { name: "BUNDABERG GINGER BEER 375ML", price: "$5.78" },
+      { name: "BUNDABERG LEMON, LIME & BITTERS 375ML", price: "$5.78" },
+      { name: "BUNDABERG GUAVA 375ML", price: "$5.50" },
+      { name: "GREEN V GUARANA ENERGY DRINK 250ML", price: "$4.73" },
+      { name: "BLUE V GUARANA ENERGY DRINK 250ML", price: "$4.73" },
+      { name: "WATER BOTTLE - PURE NZ SPRING", price: "$2.63" }
     ],
   },
 };

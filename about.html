@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="description" content="Learn about Taco Barrio, serving authentic Mexican street food in Auckland, New Zealand.">
+  <meta name="keywords" content="Mexican food Auckland, tacos Auckland NZ, burritos Queen Street, Taco Barrio Auckland, Mexican restaurant Auckland, authentic tacos NZ, Auckland food spot">
+  <meta name="author" content="Taco Barrio">
+  <meta name="theme-color" content="#03322c">
+  <link rel="icon" type="image/png" href="assets/logo-mark.png" sizes="32x32">
+  <title>About Us | Taco Barrio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="burito.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="logo" aria-label="Taco Barrio home">
+      <img src="assets/logo-mark.png" alt="Taco Barrio — Fresh Mexican Street Food" class="logo-img logo-mark">
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#menu">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button type="button" class="order-now-btn" id="cartOpenBtn" data-cart-open aria-label="Open cart">
+        <span>Order Now</span>
+      </button>
+
+      <button type="button" class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-drawer-top">
+      <a href="index.html#contact" class="cart-find-btn" id="cartFindBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2C8 2 5 5 5 9c0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <span>Find a Taco Barrio</span>
+      </a>
+      <button type="button" class="cart-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">
+        <div class="cart-empty-illustration" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="95" rx="28" ry="6" fill="#d4cfc0" opacity="0.5"/>
+            <path d="M30 55c0-18 13-32 30-32s30 14 30 32c0 8-3 15-8 20H38c-5-5-8-12-8-20z" fill="#fcb31c" stroke="#03322c" stroke-width="2.5"/>
+            <path d="M35 52c8-6 18-8 25-8s17 2 25 8" stroke="#e46127" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="48" cy="58" r="3" fill="#03322c"/>
+            <circle cx="72" cy="58" r="3" fill="#03322c"/>
+            <path d="M52 68c4 3 12 3 16 0" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M25 48c-6-2-10 2-8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M95 48c6-2 10 2 8 8" stroke="#03322c" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="cart-empty-title">Your bag is empty</h2>
+        <p class="cart-empty-text">It's lonely in here</p>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <a href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb" class="cart-order-btn" target="_blank" rel="noopener noreferrer">Order Now</a>
+    </div>
+  </aside>
+
+  <!-- About Hero Section -->
+  <section class="hero" style="min-height: 50vh; height: 50vh;">
+    <img src="https://kimi-web-img.kimi.ai/img/t3.ftcdn.net/2bfd864c11646cf26271e64bd02a3e1b2a99c14b.jpg" alt="Mexican street food tacos" class="hero-bg-img" style="object-position: center 30%;">
+    
+    <div class="hero-content">
+      <h1>About <span>Us</span></h1>
+    </div>
+  </section>
+
+  <!-- Wavy Divider -->
+  <svg class="wave-divider cream-fill" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M0,40 Q300,80 600,40 T1200,40 L1200,120 L0,120 Z" />
+  </svg>
+
+  <!-- Brand Story -->
+  <section id="story" class="story">
+    <div class="story-inner">
+      <h2 class="section-title">Our Story</h2>
+
+      <div class="quote-box">
+        <p>"In Mexico, a <strong>barrio</strong> is more than just a neighbourhood. It's where people meet, eat, laugh, share stories and make memories. It's loud, lively, welcoming and full of character."</p>
+        <img src="assets/logo-mascot.png" alt="Taco Barrio Mascot" class="story-sticker sticker-left">
+      </div>
+
+      <p class="story-text">Taco Barrio was born from a simple love for authentic Mexican street food — bold flavours, fresh ingredients, and the kind of food that brings people together.</p>
+
+      <div class="story-paragraph-wrapper">
+        <p class="story-text">We're bringing that spirit to Queen Street in Auckland, New Zealand. Our little corner of Mexico in the heart of the city serves fresh Mexican tacos, burritos and street food with big flavour, excellent ingredients and a vibrant local atmosphere.</p>
+        <img src="assets/logo-badge.png" alt="Taco Barrio Badge" class="story-sticker sticker-right">
+      </div>
+
+      <div class="seo-copy-block">
+        <p class="story-text">If you're searching for the best Mexican food in Auckland, tacos near Queen Street, or a casual Mexican restaurant in NZ, Taco Barrio is built for flavour, value and a memorable night out.</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <h3>Authentic</h3>
+          <p>Fresh, bold flavours</p>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <h3>Community</h3>
+          <p>Where everyone belongs</p>
+        </div>
+        <div class="value-card">
+          <svg class="value-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <h3>Good Vibes</h3>
+          <p>Energy & personality</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-pattern" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <svg class="footer-sticker footer-sticker-left" viewBox="0 0 120 120" aria-hidden="true">
+      <path d="M60 9l13 21 25-3-3 25 20 14-23 10-4 25-22-12-21 14-7-24-24-7 18-17-6-24 25 1z" />
+    </svg>
+
+    <svg class="footer-sticker footer-sticker-right" viewBox="0 0 180 80" aria-hidden="true">
+      <path d="M12 49c8 18 33 14 48-9 8-12 24-18 30-1 5 15 24 10 40-5 10-10 20-9 23 7 2 9 8 13 15 9" />
+    </svg>
+
+    <div class="footer-inner">
+      <img src="assets/logo-secondary.png" alt="Taco Barrio" class="footer-logo">
+      <p>Come for the tacos. Stay for the vibes. Welcome to the Barrio.</p>
+      <div class="social-links" aria-label="Follow Taco Barrio">
+        <a href="https://www.instagram.com/tacobarrio_nz" target="_blank" rel="noopener noreferrer" aria-label="Taco Barrio on Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.tiktok.com/@tacobarrio_nz" target="_blank" rel="noopener noreferrer" aria-label="Taco Barrio on TikTok">
+          <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+        </a>
+        <a href="https://share.google/NVBa5uZbR1oQiPTqn" target="_blank" rel="noopener noreferrer" aria-label="Taco Barrio on Facebook">
+          <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="burito.js"></script>
+</body>
+</html>
