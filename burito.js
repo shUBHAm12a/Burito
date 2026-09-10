@@ -344,8 +344,8 @@ const menuCategories = {
   drinks: {
     name: "Drinks & Meals",
     items: [
-      { name: "Make it a Meal with Cold Drinks", price: "+$6.00" },
-      { name: "Make it a Meal with Jarritos", price: "+$9.00" },
+      // { name: "Make it a Meal with Cold Drinks", price: "+$6.00" },
+      // { name: "Make it a Meal with Jarritos", price: "+$9.00" },
       { name: "COKE CLASSIC 330ML", price: "$3.68" },
       { name: "COKE NO SUGAR 330ML", price: "$3.68" },
       { name: "SPRITE 330ML", price: "$3.68" },
@@ -363,7 +363,7 @@ const menuCategories = {
       { name: "BUNDABERG GUAVA 375ML", price: "$5.50" },
       { name: "GREEN V GUARANA ENERGY DRINK 250ML", price: "$4.73" },
       { name: "BLUE V GUARANA ENERGY DRINK 250ML", price: "$4.73" },
-      { name: "WATER BOTTLE - PURE NZ SPRING", price: "$2.63" }
+      { name: "WATER BOTTLE - PURE NZ SPRING", price: "$2.63" },
     ],
   },
 };
@@ -475,10 +475,10 @@ if (menuModalClose) {
 function renderTabs() {
   const tabsContainer = document.getElementById("categoryTabs");
   if (!tabsContainer) return;
-  
+
   tabsContainer.innerHTML = Object.entries(menuCategories)
     .map(([key, category]) => {
-      const label = category.name.split(" ")[0];
+      const label = category.name.split("   ")[0];
       return `<button class="category-tab ${key === expandedCategory ? "active" : ""}" data-key="${key}">${label}</button>`;
     })
     .join("");
