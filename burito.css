@@ -206,7 +206,8 @@ body {
   align-items: center;
   gap: 0.65rem;
   background: transparent;
-  border: 2px solid var(green);
+  /* border: 2px solid var(green); */
+  border: 2px solid #fcb31c;
   color: green;
   padding: 0.6rem 1.5rem;
   border-radius: 6px;
@@ -1452,7 +1453,7 @@ footer p {
 @media (max-width: 900px) {
   .site-nav {
     grid-template-columns: 1fr auto;
-    padding: 0.85rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .nav-links {
