@@ -482,6 +482,11 @@ body.cart-open {
   display: block;
 }
 
+.hero h2 span {
+  color: var(--yellow);
+  display: block;
+}
+
 .hero-actions {
   display: flex;
   gap: 1rem;
@@ -593,6 +598,20 @@ body.cart-open {
   top: 50%;
   transform: translateY(-50%);
   width: 150px;
+}
+
+/* misson */
+.mission {
+  background-color: var(--cream);
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
 }
 
 /* Responsive styling for stickers */
