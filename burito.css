@@ -1296,9 +1296,9 @@ body.cart-open {
 
 /* Footer */
 footer {
-  background-color: #104f44;
-  padding: 3.5rem 1.5rem 2.75rem;
-  border-top: 3px solid var(--orange);
+  background-color: #022e28;
+  padding: 4rem 1.5rem 3rem;
+  border-top: 4px solid var(--yellow);
   text-align: center;
   color: var(--cream);
   position: relative;
@@ -1310,48 +1310,97 @@ footer {
   z-index: 2;
   max-width: 760px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-mascot-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer-mascot-img {
+  width: clamp(95px, 14vw, 145px);
+  height: auto;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+  transition: transform 0.3s ease;
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+.footer-mascot-avatar:hover .footer-mascot-img {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.mascot-speech-tag {
+  background-color: var(--yellow);
+  color: var(--teal);
+  font-family: var(--font-heading);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  letter-spacing: 0.06em;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-top: -8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 3;
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .footer-logo {
-  width: min(260px, 75vw);
+  width: min(240px, 70vw);
   height: auto;
-  margin: 0 auto 1.25rem;
+  margin: 0.6rem auto 1rem;
   display: block;
 }
 
-footer p {
-  font-weight: 700;
-  position: relative;
+.footer-slogan {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.footer-slogan span {
+  color: var(--yellow);
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-top: 1.25rem;
 }
 
 .social-links a {
   display: grid;
   place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.85rem;
+  height: 2.85rem;
   border: 2px solid var(--yellow);
   border-radius: 50%;
   color: var(--yellow);
   font-size: 1.25rem;
   text-decoration: none;
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .social-links a:hover,
 .social-links a:focus-visible {
   background-color: var(--yellow);
   color: var(--teal);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(252, 179, 28, 0.35);
 }
 
 .footer-pattern {
@@ -1406,30 +1455,30 @@ footer p {
   z-index: 1;
   overflow: visible;
   pointer-events: none;
-  filter: drop-shadow(0 8px 0 rgba(2, 36, 32, 0.28));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
 }
 
 .footer-sticker-left {
-  width: clamp(74px, 10vw, 120px);
-  left: 8%;
-  top: 50%;
-  fill: var(--orange);
-  stroke: var(--cream);
-  stroke-linejoin: round;
-  stroke-width: 8;
-  transform: translateY(-50%) rotate(-15deg);
+  width: clamp(75px, 11vw, 120px);
+  left: 4%;
+  bottom: 12%;
+  transform: rotate(-12deg);
 }
 
 .footer-sticker-right {
-  width: clamp(110px, 15vw, 180px);
-  right: 7%;
-  top: 38%;
-  fill: none;
-  stroke: var(--yellow);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 18;
-  transform: rotate(7deg);
+  width: clamp(85px, 13vw, 135px);
+  right: 5%;
+  top: 18%;
+  transform: rotate(10deg);
+}
+
+@keyframes floatMascot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 /* Animations */
