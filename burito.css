@@ -398,41 +398,13 @@ body.cart-open {
 /* Hero Section */
 .hero {
   min-height: clamp(430px, 56vw, 620px);
-  background:
-    radial-gradient(
-      circle at 58% 14%,
-      rgba(252, 179, 28, 0.13),
-      transparent 16rem
-    ),
-    linear-gradient(
-      90deg,
-      rgba(3, 50, 44, 0.98) 0%,
-      rgba(3, 50, 44, 0.92) 35%,
-      rgba(3, 50, 44, 0.38) 68%,
-      rgba(2, 36, 32, 0.08) 100%
-    ),
-    var(--teal);
+  background: var(--teal);
   padding: clamp(2rem, 4vw, 4.5rem) clamp(1.25rem, 4vw, 4.25rem);
   text-align: left;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(3, 50, 44, 0.96) 0%,
-    rgba(3, 50, 44, 0.88) 40%,
-    rgba(3, 50, 44, 0.5) 70%,
-    rgba(2, 36, 32, 0.15) 100%
-  );
-  z-index: 1;
-  pointer-events: none;
 }
 
 .hero-bg-img {
@@ -442,7 +414,7 @@ body.cart-open {
   height: 100%;
   object-fit: cover;
   object-position: 72% center;
-  opacity: 0.82;
+  opacity: 1;
   z-index: 0;
 }
 
