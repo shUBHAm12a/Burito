@@ -1315,6 +1315,46 @@ footer {
   align-items: center;
 }
 
+.footer-mascot-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.footer-mascot-img {
+  width: clamp(100px, 14vw, 135px);
+  height: clamp(100px, 14vw, 135px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--yellow);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease;
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+.footer-mascot-avatar:hover .footer-mascot-img {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.mascot-speech-tag {
+  background-color: var(--yellow);
+  color: var(--teal);
+  font-family: var(--font-heading);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  letter-spacing: 0.06em;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-top: -12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 3;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
 .footer-logo {
   width: min(280px, 75vw);
   height: auto;
@@ -1437,6 +1477,15 @@ footer {
   right: 5%;
   top: 18%;
   transform: rotate(10deg);
+}
+
+@keyframes floatMascot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes floatMascot {
