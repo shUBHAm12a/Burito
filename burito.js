@@ -1,6 +1,6 @@
 const menuCategories = {
   burritos: {
-    name: "Signature  Burritos",
+    name: "Signature Burritos",
     items: [
       { name: "Barrio Chicken", price: "$15.90", vegan: false },
       { name: "NZ Beef", price: "$16.90", vegan: false },
