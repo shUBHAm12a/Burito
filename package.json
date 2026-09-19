@@ -1,0 +1,12 @@
+{
+  "name": "taco-barrio",
+  "version": "1.0.0",
+  "description": "Taco Barrio website",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
