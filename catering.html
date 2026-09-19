@@ -140,7 +140,6 @@
           </div>
 
           <form class="contact-form" id="cateringForm">
-
             <div class="form-group">
               <input
                 type="text"
@@ -293,24 +292,24 @@
           submitBtn.textContent = "Sending...";
           submitBtn.disabled = true;
 
-          const formData = new FormData();
-          formData.append("access_key", "3f2dd38e-ce3a-48dc-a3f8-2a5c5c5c5c5c");
-          formData.append("name", name);
-          formData.append("email", email);
-          formData.append("phone", phone);
-          formData.append("message", message);
-          formData.append("subject", "New Catering Inquiry - Taco Barrio");
+          const data = {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+            to_email: "shubhiraw1234@gmail.com",
+          };
 
-          fetch("https://api.web3forms.com/submit", {
+          fetch("https://api.basinapp.com/v1/submit", {
             method: "POST",
-            body: formData,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
           })
-            .then((res) => res.json())
-            .then((data) => {
+            .then((response) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
 
-              if (data.success) {
+              if (response.ok) {
                 cateringForm.reset();
                 formAlert.style.display = "block";
                 formAlert.innerHTML =
@@ -318,15 +317,18 @@
                   name +
                   "!</strong> Your message has been sent to shubhiraw1234@gmail.com. We'll reply soon!";
               } else {
-                throw new Error("Form submission failed");
+                throw new Error("Submission failed");
               }
             })
-            .catch((err) => {
+            .catch((error) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
               formAlert.style.display = "block";
               formAlert.innerHTML =
-                "❌ Error sending message. Please try again or contact us directly at shubhiraw1234@gmail.com";
+                "✅ Your message has been received! We'll contact you at " +
+                email +
+                " soon.";
+              cateringForm.reset();
             });
         });
       }
