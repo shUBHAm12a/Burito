@@ -139,20 +139,7 @@
             to you shortly!
           </div>
 
-          <form
-            action="https://formsubmit.co/shubhiraw1234@gmail.com"
-            method="POST"
-            class="contact-form"
-            id="cateringForm"
-          >
-            <!-- FormSubmit Options -->
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Catering Inquiry - Taco Barrio"
-            />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
+          <form class="contact-form" id="cateringForm">
 
             <div class="form-group">
               <input
@@ -288,8 +275,12 @@
       © 2026 Taco Barrio. All rights reserved.
     </span>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="burito.js"></script>
     <script>
+      // Initialize EmailJS
+      emailjs.init("bXVX0jCDhNLb5Kx-3");
+
       const cateringForm = document.getElementById("cateringForm");
       const formAlert = document.getElementById("formAlert");
       const submitBtn = document.getElementById("submitBtn");
@@ -299,35 +290,40 @@
           e.preventDefault();
 
           const name = cateringForm.querySelector('[name="name"]').value;
+          const email = cateringForm.querySelector('[name="email"]').value;
+          const phone = cateringForm.querySelector('[name="phone"]').value;
+          const message = cateringForm.querySelector('[name="message"]').value;
+
           submitBtn.textContent = "Sending...";
           submitBtn.disabled = true;
 
-          const formData = new FormData(cateringForm);
+          const templateParams = {
+            to_email: "shubhiraw1234@gmail.com",
+            from_name: name,
+            from_email: email,
+            phone: phone,
+            message: message,
+          };
 
-          fetch("https://formsubmit.co/ajax/shubhiraw1234@gmail.com", {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
-          })
-            .then((res) => {
+          emailjs.send("service_tacobarrio", "template_catering", templateParams).then(
+            (res) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
-
-              if (res.ok) {
-                cateringForm.reset();
-                formAlert.style.display = "block";
-                formAlert.innerHTML =
-                  "✅ <strong>Thank you " +
-                  name +
-                  "!</strong> Your message has been sent. We'll reply soon!";
-              }
-            })
-            .catch((err) => {
+              cateringForm.reset();
+              formAlert.style.display = "block";
+              formAlert.innerHTML =
+                "✅ <strong>Thank you " +
+                name +
+                "!</strong> Your message has been sent to shubhiraw1234@gmail.com. We'll reply soon!";
+            },
+            (err) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
               formAlert.style.display = "block";
-              formAlert.innerHTML = "❌ Error sending. Please try again!";
-            });
+              formAlert.innerHTML =
+                "❌ Error sending message. Please try again or contact us directly at shubhiraw1234@gmail.com";
+            },
+          );
         });
       }
     </script>
