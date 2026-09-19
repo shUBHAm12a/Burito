@@ -275,12 +275,8 @@
       © 2026 Taco Barrio. All rights reserved.
     </span>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="burito.js"></script>
     <script>
-      // Initialize EmailJS
-      emailjs.init("bXVX0jCDhNLb5Kx-3");
-
       const cateringForm = document.getElementById("cateringForm");
       const formAlert = document.getElementById("formAlert");
       const submitBtn = document.getElementById("submitBtn");
@@ -297,33 +293,41 @@
           submitBtn.textContent = "Sending...";
           submitBtn.disabled = true;
 
-          const templateParams = {
-            to_email: "shubhiraw1234@gmail.com",
-            from_name: name,
-            from_email: email,
-            phone: phone,
-            message: message,
-          };
+          const formData = new FormData();
+          formData.append("access_key", "3f2dd38e-ce3a-48dc-a3f8-2a5c5c5c5c5c");
+          formData.append("name", name);
+          formData.append("email", email);
+          formData.append("phone", phone);
+          formData.append("message", message);
+          formData.append("subject", "New Catering Inquiry - Taco Barrio");
 
-          emailjs.send("service_tacobarrio", "template_catering", templateParams).then(
-            (res) => {
+          fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
-              cateringForm.reset();
-              formAlert.style.display = "block";
-              formAlert.innerHTML =
-                "✅ <strong>Thank you " +
-                name +
-                "!</strong> Your message has been sent to shubhiraw1234@gmail.com. We'll reply soon!";
-            },
-            (err) => {
+
+              if (data.success) {
+                cateringForm.reset();
+                formAlert.style.display = "block";
+                formAlert.innerHTML =
+                  "✅ <strong>Thank you " +
+                  name +
+                  "!</strong> Your message has been sent to shubhiraw1234@gmail.com. We'll reply soon!";
+              } else {
+                throw new Error("Form submission failed");
+              }
+            })
+            .catch((err) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
               formAlert.style.display = "block";
               formAlert.innerHTML =
                 "❌ Error sending message. Please try again or contact us directly at shubhiraw1234@gmail.com";
-            },
-          );
+            });
         });
       }
     </script>
