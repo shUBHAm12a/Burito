@@ -614,6 +614,7 @@ navLinks.querySelectorAll("a").forEach((link) => {
 });
 
 function openCart() {
+  if (!cartOverlay || !cartDrawer) return;
   cartOverlay.hidden = false;
   requestAnimationFrame(() => {
     cartOverlay.classList.add("is-open");
@@ -624,6 +625,7 @@ function openCart() {
 }
 
 function closeCart() {
+  if (!cartOverlay || !cartDrawer) return;
   cartOverlay.classList.remove("is-open");
   cartDrawer.classList.remove("is-open");
   cartDrawer.setAttribute("aria-hidden", "true");
@@ -638,13 +640,13 @@ function closeCart() {
 cartOpenBtns.forEach((btn) => {
   btn.addEventListener("click", openCart);
 });
-cartCloseBtn.addEventListener("click", closeCart);
-cartOverlay.addEventListener("click", closeCart);
+cartCloseBtn?.addEventListener("click", closeCart);
+cartOverlay?.addEventListener("click", closeCart);
 
-cartFindBtn.addEventListener("click", closeCart);
+cartFindBtn?.addEventListener("click", closeCart);
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && cartDrawer.classList.contains("is-open")) {
+  if (e.key === "Escape" && cartDrawer?.classList.contains("is-open")) {
     closeCart();
   }
 });
