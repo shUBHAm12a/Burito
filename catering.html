@@ -299,10 +299,6 @@
           e.preventDefault();
 
           const name = cateringForm.querySelector('[name="name"]').value;
-          const email = cateringForm.querySelector('[name="email"]').value;
-          const phone = cateringForm.querySelector('[name="phone"]').value;
-          const message = cateringForm.querySelector('[name="message"]').value;
-
           submitBtn.textContent = "Sending...";
           submitBtn.disabled = true;
 
@@ -311,69 +307,26 @@
           fetch("https://formsubmit.co/ajax/shubhiraw1234@gmail.com", {
             method: "POST",
             body: formData,
-            headers: {
-              Accept: "application/json",
-            },
+            headers: { Accept: "application/json" },
           })
-            .then(function (res) {
+            .then((res) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
 
-              if (!res.ok) {
-                // If FormSubmit requires 1-time activation or returns error, submit natively or mailto
-                const mailtoUrl =
-                  "mailto:shubhiraw1234@gmail.com?subject=Catering Inquiry from " +
-                  encodeURIComponent(name) +
-                  "&body=" +
-                  encodeURIComponent(
-                    "Name: " +
-                      name +
-                      "\nEmail: " +
-                      email +
-                      "\nPhone: " +
-                      phone +
-                      "\n\nMessage:\n" +
-                      message,
-                  );
-                window.location.href = mailtoUrl;
-
+              if (res.ok) {
+                cateringForm.reset();
                 formAlert.style.display = "block";
                 formAlert.innerHTML =
-                  "<strong>Check your Gmail inbox (shubhiraw1234@gmail.com)!</strong> FormSubmit sent a 1-time activation email titled <em>'Action Required: Activate FormSubmit'</em>. Click <strong>Activate Form</strong> once to receive future messages automatically.";
-                return;
+                  "✅ <strong>Thank you " +
+                  name +
+                  "!</strong> Your message has been sent. We'll reply soon!";
               }
-
-              cateringForm.reset();
-              formAlert.style.display = "block";
-              formAlert.innerHTML =
-                "<strong>Thank you " +
-                name +
-                "!</strong> Your message has been sent to <strong>shubhiraw1234@gmail.com</strong>. We will contact you soon!";
             })
-            .catch(function (err) {
-              const mailtoUrl =
-                "mailto:shubhiraw1234@gmail.com?subject=Catering Inquiry from " +
-                encodeURIComponent(name) +
-                "&body=" +
-                encodeURIComponent(
-                  "Name: " +
-                    name +
-                    "\nEmail: " +
-                    email +
-                    "\nPhone: " +
-                    phone +
-                    "\n\nMessage:\n" +
-                    message,
-                );
-              window.location.href = mailtoUrl;
-
+            .catch((err) => {
               submitBtn.textContent = "Send Message";
               submitBtn.disabled = false;
-              cateringForm.reset();
-
               formAlert.style.display = "block";
-              formAlert.innerHTML =
-                "<strong>Mail Client Opened:</strong> Message prepared to send to <strong>shubhiraw1234@gmail.com</strong>.";
+              formAlert.innerHTML = "❌ Error sending. Please try again!";
             });
         });
       }
