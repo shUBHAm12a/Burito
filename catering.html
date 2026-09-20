@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,6 +7,10 @@
     <link rel="icon" type="image/png" href="assets/logo-mark.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
@@ -33,7 +37,11 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(2, 36, 32, 0.94), rgba(2, 36, 32, 0.2));
+        background: linear-gradient(
+          90deg,
+          rgba(2, 36, 32, 0.94),
+          rgba(2, 36, 32, 0.2)
+        );
       }
 
       .catering-hero img {
@@ -68,7 +76,9 @@
         text-transform: uppercase;
       }
 
-      .catering-hero h1 span { color: var(--orange); }
+      .catering-hero h1 span {
+        color: var(--orange);
+      }
 
       .catering-intro {
         color: rgba(248, 232, 195, 0.88);
@@ -119,14 +129,18 @@
 
       .catering-form-wrap {
         background: #fff9e9;
-        border-left: 6px solid var(--orange);
+        border-left: 6px solid var(--yellow);
         box-shadow: 0 18px 45px rgba(3, 50, 44, 0.14);
         padding: clamp(1.5rem, 4vw, 3rem);
       }
 
-      .catering-form-wrap h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+      .catering-form-wrap h2 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+      }
 
-      .catering-form { margin-top: 1.5rem; }
+      .catering-form {
+        margin-top: 1.5rem;
+      }
 
       .form-row {
         display: grid;
@@ -134,7 +148,9 @@
         gap: 1rem;
       }
 
-      .form-field { margin-bottom: 1.1rem; }
+      .form-field {
+        margin-bottom: 1.1rem;
+      }
 
       .form-field label {
         color: var(--teal);
@@ -159,25 +175,40 @@
         width: 100%;
       }
 
-      .form-field textarea { min-height: 7rem; resize: vertical; }
+      .form-field textarea {
+        min-height: 7rem;
+        resize: vertical;
+      }
       .form-field input:focus,
-      .form-field textarea:focus { border-bottom-color: var(--orange); }
+      .form-field textarea:focus {
+        border-bottom-color: var(--yellow);
+      }
 
       .catering-submit {
-        background: var(--orange);
+        background: var(--yellow);
         border: 0;
-        color: #fff9e9;
+        color: var(--teal);
         cursor: pointer;
         font-family: var(--font-heading);
         font-size: 1rem;
         letter-spacing: 0.12em;
         padding: 1rem 1.5rem;
         text-transform: uppercase;
-        transition: background 0.2s ease, transform 0.2s ease;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
       }
 
-      .catering-submit:hover { background: var(--red); transform: translateY(-2px); }
-      .catering-submit:disabled { cursor: wait; opacity: 0.65; transform: none; }
+      .catering-submit:hover {
+        background: var(--orange);
+        color: #fff9e9;
+        transform: translateY(-2px);
+      }
+      .catering-submit:disabled {
+        cursor: wait;
+        opacity: 0.65;
+        transform: none;
+      }
 
       .toast {
         align-items: center;
@@ -195,27 +226,61 @@
         position: fixed;
         right: 1rem;
         transform: translateY(1rem);
-        transition: opacity 0.25s ease, transform 0.25s ease;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
         visibility: hidden;
         z-index: 300;
       }
 
-      .toast.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); visibility: visible; }
-      .toast.is-error { border-left-color: var(--red); }
-      .toast-icon { color: var(--yellow); font-size: 1.25rem; font-weight: 700; }
-      .toast.is-error .toast-icon { color: #ff8d72; }
+      .toast.is-visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+      }
+      .toast.is-error {
+        border-left-color: var(--red);
+      }
+      .toast-icon {
+        color: var(--yellow);
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .toast.is-error .toast-icon {
+        color: #ff8d72;
+      }
+
+      .footer-copyright {
+        background: #0d4239;
+        color: #fff;
+        font-size: 0.85rem;
+        padding: 0.75rem;
+        text-align: center;
+      }
 
       @media (max-width: 700px) {
-        .catering-layout, .form-row { grid-template-columns: 1fr; }
-        .catering-details { max-width: 32rem; }
-        .catering-hero { min-height: 55vh; }
+        .catering-layout,
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .catering-details {
+          max-width: 32rem;
+        }
+        .catering-hero {
+          min-height: 55vh;
+        }
       }
     </style>
   </head>
   <body class="catering-page">
     <nav class="site-nav">
       <a href="index.html" class="logo" aria-label="Taco Barrio home">
-        <img src="assets/logo-mark.png" alt="Taco Barrio" class="logo-img logo-mark" />
+        <img
+          src="assets/logo-mark.png"
+          alt="Taco Barrio"
+          class="logo-img logo-mark"
+        />
       </a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -226,27 +291,51 @@
         <a href="index.html#contact">Contact</a>
       </div>
       <div class="nav-actions">
-        <a href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb" class="order-now-btn" target="_blank" rel="noopener noreferrer"><span>Order Now</span></a>
-        <button type="button" class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <a
+          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          class="order-now-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><span>Order Now</span></a
+        >
+        <button
+          type="button"
+          class="hamburger-menu"
+          id="hamburgerBtn"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
           <span></span><span></span><span></span>
         </button>
       </div>
     </nav>
 
     <header class="catering-hero">
-      <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=1800&auto=format&fit=crop" alt="Colourful Mexican street food spread" />
+      <img
+        src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=1800&auto=format&fit=crop"
+        alt="Colourful Mexican street food spread"
+      />
       <div class="catering-hero-content">
         <p class="catering-kicker">Bring the barrio to your event</p>
         <h1>Catering <span>with character</span></h1>
-        <p class="catering-intro">Big celebrations, office lunches, or a proper feed with friends. Tell us what you are planning and we will bring the flavour.</p>
+        <p class="catering-intro">
+          Big celebrations, office lunches, or a proper feed with friends. Tell
+          us what you are planning and we will bring the flavour.
+        </p>
       </div>
     </header>
 
     <main class="catering-main">
       <div class="catering-layout">
-        <section class="catering-details" aria-labelledby="catering-details-title">
+        <section
+          class="catering-details"
+          aria-labelledby="catering-details-title"
+        >
           <h2 id="catering-details-title">Let's make it a fiesta</h2>
-          <p>Share a few details and our team will get back to you with a catering plan made for your crew.</p>
+          <p>
+            Share a few details and our team will get back to you with a
+            catering plan made for your crew.
+          </p>
           <div class="catering-details-list">
             <p>Freshly made Mexican street food</p>
             <p>Options for small and large groups</p>
@@ -260,11 +349,23 @@
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Name</label>
-                <input id="name" type="text" name="name" autocomplete="name" required />
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  required
+                />
               </div>
               <div class="form-field">
                 <label for="email">Email</label>
-                <input id="email" type="email" name="email" autocomplete="email" required />
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                />
               </div>
             </div>
             <div class="form-field">
@@ -273,7 +374,12 @@
             </div>
             <div class="form-field">
               <label for="message">Tell us about your event</label>
-              <textarea id="message" name="message" placeholder="Date, guest numbers, and what you have in mind..." required></textarea>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Date, guest numbers, and what you have in mind..."
+                required
+              ></textarea>
             </div>
             <button class="catering-submit" type="submit">Send enquiry</button>
           </form>
@@ -281,7 +387,74 @@
       </div>
     </main>
 
-    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">
+    <footer>
+      <div class="footer-pattern" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <img
+        src="assets/logo-mascot.png"
+        alt="Taco Barrio Mascot"
+        class="footer-sticker footer-sticker-left"
+      />
+      <img
+        src="assets/logo-badge.png"
+        alt="Taco Barrio Badge"
+        class="footer-sticker footer-sticker-right"
+      />
+      <div class="footer-inner">
+        <div class="footer-mascot-avatar">
+          <img
+            src="assets/logo-mascot.png"
+            alt="Taco Barrio Mascot"
+            class="footer-mascot-img"
+          />
+          <div class="mascot-speech-tag">Welcome to the Barrio!</div>
+        </div>
+        <img
+          src="assets/logo-secondary.png"
+          alt="Taco Barrio"
+          class="footer-logo"
+        />
+        <p class="footer-slogan">
+          Come for the tacos. <span>Stay for the vibes.</span> Welcome to the
+          Barrio.
+        </p>
+        <div class="social-links" aria-label="Follow Taco Barrio">
+          <a
+            href="https://www.instagram.com/tacobarrio_nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on Instagram"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://www.tiktok.com/@tacobarrio_nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on TikTok"
+            ><i class="fa-brands fa-tiktok" aria-hidden="true"></i
+          ></a>
+          <a
+            href="https://share.google/NVBa5uZbR1oQiPTqn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on Facebook"
+            ><i class="fa-brands fa-facebook" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <div class="footer-copyright">
+      &copy; 2026 Taco Barrio. All rights reserved.
+    </div>
+
+    <div
+      id="toast"
+      class="toast"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    >
       <span id="toastIcon" class="toast-icon" aria-hidden="true">&#10003;</span>
       <span id="toastMessage"></span>
     </div>
@@ -300,7 +473,10 @@
         toastIcon.textContent = isError ? "!" : "✓";
         toastMessage.textContent = message;
         toast.classList.add("is-visible");
-        toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 5000);
+        toastTimer = setTimeout(
+          () => toast.classList.remove("is-visible"),
+          5000,
+        );
       }
 
       form.addEventListener("submit", async (event) => {
@@ -315,7 +491,8 @@
             body: JSON.stringify(Object.fromEntries(new FormData(form))),
           });
           const result = await response.json();
-          if (!response.ok) throw new Error(result.error || "Failed to send email");
+          if (!response.ok)
+            throw new Error(result.error || "Failed to send email");
           form.reset();
           showToast("Thanks! Your catering enquiry is on its way.");
         } catch (error) {

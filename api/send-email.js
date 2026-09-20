@@ -8,7 +8,7 @@ const escapeHtml = (value) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
-  const safeSubject = (value) => String(value).replace(/[\r\n]/g, " ");
+const safeSubject = (value) => String(value).replace(/[\r\n]/g, " ");
 
 async function handler(req, res) {
   if (req.method !== "POST") {
