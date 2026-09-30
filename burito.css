@@ -207,8 +207,8 @@ body {
   gap: 0.65rem;
   background: transparent;
   /* border: 2px solid var(green); */
-  border: 2px solid #fcb31c;
-  color: green;
+  background-color: green;
+  color: #fcb31c;
   padding: 0.5rem 1.4rem;
   border-radius: 6px;
   cursor: pointer;
@@ -1481,7 +1481,8 @@ footer {
 }
 
 @keyframes floatMascot {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1490,7 +1491,8 @@ footer {
 }
 
 @keyframes floatMascot {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -1772,7 +1774,10 @@ footer {
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  transition:
+    background-color 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
   margin-top: 0.5rem;
   box-shadow: 0 4px 12px rgba(52, 168, 83, 0.25);
 }
@@ -1797,4 +1802,3 @@ footer {
   text-align: center;
   margin-bottom: 1.25rem;
 }
-

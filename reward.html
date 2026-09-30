@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="description"
+      content="Earn rewards with every order at Taco Barrio. Fresh Mexican street food in Auckland, New Zealand."
+    />
+    <meta
+      name="keywords"
+      content="Taco Barrio rewards, loyalty program Auckland, Mexican food rewards NZ"
+    />
+    <meta name="author" content="Taco Barrio" />
+    <meta name="theme-color" content="#03322c" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/logo-mark.png"
+      sizes="64x64"
+    />
+    <title>Rewards | Taco Barrio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="burito.css" />
+
+    <style>
+      /* ===== First-Visit Overlay ===== */
+      .first-visit-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(3, 50, 44, 0.88);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+
+      .first-visit-overlay.is-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Confetti bursts */
+      .first-visit-overlay::before,
+      .first-visit-overlay::after {
+        content: "🌮🎉🌶️🔥🎊";
+        position: absolute;
+        font-size: 2.5rem;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .first-visit-overlay.is-visible::before {
+        top: 12%;
+        left: 8%;
+        animation: confettiFloat 3s ease-in-out infinite;
+      }
+
+      .first-visit-overlay.is-visible::after {
+        bottom: 15%;
+        right: 8%;
+        animation: confettiFloat 3s ease-in-out 0.5s infinite;
+      }
+
+      .first-visit-card {
+        background: var(--cream);
+        border-radius: 24px;
+        padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+        max-width: 520px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transform: scale(0.7) translateY(40px);
+        opacity: 0;
+        transition:
+          transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.5s ease;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .first-visit-overlay.is-visible .first-visit-card {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      /* Decorative top accent */
+      .first-visit-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(
+          90deg,
+          var(--orange),
+          var(--yellow),
+          var(--red),
+          var(--orange)
+        );
+        background-size: 300% 100%;
+        animation: gradientSlide 3s linear infinite;
+      }
+
+      .first-visit-emoji {
+        font-size: clamp(3rem, 8vw, 4.5rem);
+        margin-bottom: 0.75rem;
+        display: block;
+        animation: bounce 1s ease-in-out infinite;
+        animation-delay: 0.6s;
+      }
+
+      .first-visit-title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+        margin-bottom: 0.75rem;
+      }
+
+      .first-visit-title span {
+        color: var(--orange);
+        display: block;
+        font-size: 1.15em;
+      }
+
+      .first-visit-subtitle {
+        font-size: clamp(0.95rem, 2vw, 1.15rem);
+        color: #4a5568;
+        line-height: 1.5;
+        margin-bottom: 1.75rem;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .first-visit-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--teal);
+        color: var(--cream);
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 2.2rem;
+        border-radius: 50px;
+        transition:
+          transform 0.2s ease,
+          background 0.25s ease,
+          box-shadow 0.25s ease;
+        box-shadow: 0 6px 20px rgba(3, 50, 44, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .first-visit-cta::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -75%;
+        width: 50%;
+        height: 200%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transform: skewX(-25deg);
+        animation: shimmer 2.5s ease-in-out infinite;
+      }
+
+      .first-visit-cta:hover {
+        background: var(--teal-dark);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 30px rgba(3, 50, 44, 0.4);
+      }
+
+      .first-visit-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #999;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .first-visit-close:hover {
+        background: rgba(0, 0, 0, 0.08);
+        color: var(--teal);
+      }
+
+      .first-visit-badge {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--teal);
+        font-family: var(--font-heading);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.35rem 1rem;
+        border-radius: 50px;
+        margin-bottom: 1.25rem;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* Fade out */
+      .first-visit-overlay.is-closing {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .first-visit-overlay.is-closing .first-visit-card {
+        transform: scale(0.9) translateY(20px);
+        opacity: 0;
+      }
+
+      /* ===== Animations ===== */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          left: -75%;
+        }
+        100% {
+          left: 150%;
+        }
+      }
+
+      @keyframes gradientSlide {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 300% 50%;
+        }
+      }
+
+      @keyframes confettiFloat {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          opacity: 1;
+          transform: translateY(-15px) rotate(8deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      /* ===== Rewards Page Content ===== */
+      .rewards-section {
+        background-color: var(--cream);
+        padding: 4rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rewards-inner {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .rewards-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .rewards-intro h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+      }
+
+      .rewards-intro p {
+        font-size: 1.1rem;
+        color: #4a5568;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .rewards-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .reward-step {
+        background: var(--teal);
+        color: var(--cream);
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        text-align: center;
+        border: 2px solid var(--yellow);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        transition: transform 0.25s ease;
+      }
+
+      .reward-step:hover {
+        transform: translateY(-4px);
+      }
+
+      .reward-step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background: var(--yellow);
+        color: var(--teal);
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      .reward-step h3 {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        color: var(--yellow);
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.03em;
+      }
+
+      .reward-step p {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        line-height: 1.4;
+      }
+
+      .rewards-tiers {
+        margin-bottom: 3rem;
+      }
+
+      .rewards-tiers h2 {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: var(--teal);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .tier-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .tier-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        border: 2px solid transparent;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease;
+      }
+
+      .tier-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--yellow);
+      }
+
+      .tier-card .tier-emoji {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .tier-card h3 {
+        font-family: var(--font-heading);
+        font-size: 1.4rem;
+        color: var(--teal);
+        margin-bottom: 0.4rem;
+      }
+
+      .tier-card .tier-orders {
+        font-size: 0.85rem;
+        color: var(--orange);
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .tier-card p {
+        font-size: 0.95rem;
+        color: #4a5568;
+        line-height: 1.5;
+      }
+
+      .rewards-cta {
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      .rewards-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        background: var(--teal);
+        color: var(--cream);
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 2.5rem;
+        border-radius: 6px;
+        transition:
+          background 0.25s ease,
+          transform 0.2s ease;
+        border: 2px solid var(--yellow);
+      }
+
+      .rewards-cta-btn:hover {
+        background: var(--teal-dark);
+        transform: translateY(-2px);
+      }
+
+      /* ===== Order Embed Section ===== */
+      .order-embed-section {
+        background: var(--teal);
+        padding: 0;
+        position: relative;
+      }
+
+      .order-embed-header {
+        text-align: center;
+        padding: 3rem 1.5rem 1.5rem;
+      }
+
+      .order-embed-emoji {
+        display: block;
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+        animation: bounce 1.2s ease-in-out infinite;
+      }
+
+      .order-embed-header h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(2.2rem, 6vw, 3.2rem);
+        color: var(--cream);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+      }
+
+      .order-embed-header h2 span {
+        color: var(--yellow);
+      }
+
+      .order-embed-header p {
+        font-size: 1.05rem;
+        color: var(--cream);
+        opacity: 0.8;
+      }
+
+      .order-embed-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem 2rem;
+        position: relative;
+      }
+
+      .order-embed-iframe {
+        width: 100%;
+        height: 85vh;
+        min-height: 600px;
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+      <a href="index.html" class="logo" aria-label="Taco Barrio home">
+        <img
+          src="assets/logo-mark.png"
+          alt="Taco Barrio — Fresh Mexican Street Food"
+          class="logo-img logo-mark"
+        />
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="misson.html">Mission</a>
+        <a href="catering.html">Catering</a>
+        <a href="reward.html">Rewards</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a
+          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          class="order-now-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Order Now</span>
+        </a>
+
+        <button
+          type="button"
+          class="hamburger-menu"
+          id="hamburgerBtn"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- First Visit Overlay -->
+    <div class="first-visit-overlay" id="firstVisitOverlay">
+      <div class="first-visit-card">
+        <button
+          class="first-visit-close"
+          id="firstVisitClose"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <span class="first-visit-emoji">🌮</span>
+        <span class="first-visit-badge">Welcome to the Barrio!</span>
+        <h2 class="first-visit-title">Place Your <span>First Order</span></h2>
+        <p class="first-visit-subtitle">
+          Start earning delicious rewards with every bite. Your first order
+          unlocks exclusive perks — fresh tacos, burritos & more await!
+        </p>
+        <a
+          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          class="first-visit-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🔥 Order Now
+        </a>
+      </div>
+    </div>
+
+    <!-- Rewards Section -->
+    <section id="order" class="order-embed-section">
+      <div class="order-embed-header">
+        <span class="order-embed-emoji">🌮</span>
+        <h2>Make Your <span>First Order</span></h2>
+        <p>
+          Start your Barrio journey right here — fresh tacos, burritos & more
+          await!
+        </p>
+
+        <a
+          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          target="_blank"
+          class="order-now-btn"
+          style="
+            padding: 15px 40px;
+            display: inline-block;
+            text-decoration: none;
+          "
+        >
+          <span>Order Now</span>
+        </a>
+      </div>
+
+      <!-- <div class="order-embed-wrapper">
+        <iframe
+          src="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          title="Taco Barrio Online Ordering"
+          class="order-embed-iframe"
+          loading="lazy"
+          allow="payment"
+        ></iframe>
+      </div> -->
+    </section>
+
+    <section class="rewards-section">
+      <div class="rewards-inner">
+        <div class="rewards-intro">
+          <h2>Earn Taco <span>Rewards</span></h2>
+          <p>
+            Join the Barrio loyalty program. Earn points with every order and
+            unlock exclusive perks, free food, and more.
+          </p>
+        </div>
+
+        <div class="rewards-steps">
+          <div class="reward-step">
+            <div class="reward-step-number">1</div>
+            <h3>Sign Up</h3>
+            <p>Create an account when you place your first order.</p>
+          </div>
+          <div class="reward-step">
+            <div class="reward-step-number">2</div>
+            <h3>Earn Rewards</h3>
+            <p>
+              Order your favorite Mexican street food and start collecting
+              rewards.
+            </p>
+          </div>
+          <div class="reward-step">
+            <div class="reward-step-number">3</div>
+            <h3>Enjoy Perks</h3>
+            <p>Unlock exclusive deals, free food, and special offers!</p>
+          </div>
+        </div>
+
+        <div class="rewards-tiers">
+          <h2>Why Join the Barrio?</h2>
+          <div class="tier-grid">
+            <div class="tier-card">
+              <span class="tier-emoji">🌮</span>
+              <h3>Exclusive Offers</h3>
+              <div class="tier-orders">Members Only</div>
+              <p>
+                Get access to special deals and discounts available only to our
+                loyalty members.
+              </p>
+            </div>
+            <div class="tier-card">
+              <span class="tier-emoji">🎉</span>
+              <h3>Birthday Treats</h3>
+              <div class="tier-orders">Celebrate With Us</div>
+              <p>
+                Enjoy a special surprise from us on your birthday as part of the
+                familia.
+              </p>
+            </div>
+            <div class="tier-card">
+              <span class="tier-emoji">🔥</span>
+              <h3>Earn Free Food</h3>
+              <div class="tier-orders">Delicious Perks</div>
+              <p>
+                Your orders add up! Earn your way towards free tacos, burritos,
+                and more.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rewards-cta">
+          <a
+            href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+            class="rewards-cta-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-solid fa-star"></i> Join the Barrio Program
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Now Embedded Section -->
+    <!-- <section id="order" class="order-embed-section">
+      <div class="order-embed-header">
+        <span class="order-embed-emoji">🌮</span>
+        <h2>Make Your <span>First Order</span></h2>
+        <p>
+          Start your Barrio journey right here — fresh tacos, burritos & more
+          await!
+        </p>
+
+        <a href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb" target="_blank" class="order-now-btn" style="padding: 15px 40px; display: inline-block; text-decoration: none;">
+          <span>Order Now</span>
+        </a>
+      </div>
+
+      <!-- <div class="order-embed-wrapper">
+        <iframe
+          src="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
+          title="Taco Barrio Online Ordering"
+          class="order-embed-iframe"
+          loading="lazy"
+          allow="payment"
+        ></iframe>
+      </div> -->
+    <!-- </section> -->
+    <!-- -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-pattern" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <img
+        src="assets/logo-mascot.png"
+        alt="Taco Barrio Mascot"
+        class="footer-sticker footer-sticker-left"
+      />
+      <img
+        src="assets/logo-badge.png"
+        alt="Taco Barrio Badge"
+        class="footer-sticker footer-sticker-right"
+      />
+
+      <div class="footer-inner">
+        <div class="footer-mascot-avatar">
+          <img
+            src="assets/logo-mascot.png"
+            alt="Taco Barrio Mascot"
+            class="footer-mascot-img"
+          />
+          <div class="mascot-speech-tag">Welcome to the Barrio!</div>
+        </div>
+
+        <img
+          src="assets/logo-secondary.png"
+          alt="Taco Barrio"
+          class="footer-logo"
+        />
+        <p class="footer-slogan">
+          Come for the tacos. <span>Stay for the vibes.</span> Welcome to the
+          Barrio.
+        </p>
+
+        <div class="social-links" aria-label="Follow Taco Barrio">
+          <a
+            href="https://www.instagram.com/tacobarrio_nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on Instagram"
+          >
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@tacobarrio_nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on TikTok"
+          >
+            <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://share.google/NVBa5uZbR1oQiPTqn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Taco Barrio on Facebook"
+          >
+            <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <span
+      style="
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.5rem;
+        width: 100%;
+        background-color: #0d4239;
+        color: #fff;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+      "
+    >
+      © 2026 Taco Barrio. All rights reserved.
+    </span>
+
+    <script src="burito.js"></script>
+
+    <script>
+      // ===== First Visit Overlay Logic =====
+      (function () {
+        const STORAGE_KEY = "tacoBarrio_rewardVisited";
+        const overlay = document.getElementById("firstVisitOverlay");
+        const closeBtn = document.getElementById("firstVisitClose");
+
+        // Check if this is the user's first visit
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          // Show overlay after a small delay for a smoother experience
+          setTimeout(() => {
+            overlay.classList.add("is-visible");
+            document.body.style.overflow = "hidden";
+          }, 600);
+
+          // Mark as visited
+          localStorage.setItem(STORAGE_KEY, "true");
+        }
+
+        function closeOverlay() {
+          overlay.classList.add("is-closing");
+          overlay.classList.remove("is-visible");
+          document.body.style.overflow = "";
+          setTimeout(() => {
+            overlay.style.display = "none";
+          }, 500);
+        }
+
+        // Close button
+        closeBtn.addEventListener("click", closeOverlay);
+
+        // Click outside card to close
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) {
+            closeOverlay();
+          }
+        });
+
+        // Escape key to close
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && overlay.classList.contains("is-visible")) {
+            closeOverlay();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
