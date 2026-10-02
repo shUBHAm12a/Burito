@@ -205,9 +205,10 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background: transparent;
+  background: #03322c;
+
   /* border: 2px solid var(green); */
-  background-color: green;
+
   color: #fcb31c;
   padding: 0.5rem 1.4rem;
   border-radius: 6px;
