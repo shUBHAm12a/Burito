@@ -346,44 +346,23 @@
 
         <section class="catering-form-wrap" aria-labelledby="form-title">
           <h2 id="form-title">Start your enquiry</h2>
-          <form id="contactForm" class="catering-form">
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  autocomplete="name"
-                  required
-                />
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone</label>
-              <input id="phone" type="tel" name="phone" autocomplete="tel" />
-            </div>
-            <div class="form-field">
-              <label for="message">Tell us about your event</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Date, guest numbers, and what you have in mind..."
-                required
-              ></textarea>
-            </div>
-            <button class="catering-submit" type="submit">Send enquiry</button>
-          </form>
+          <div class="catering-form" style="text-align: center; padding: 2rem 0;">
+            <p style="color: var(--teal); font-size: 1.05rem; margin-bottom: 0.5rem;">
+              Drop us an email at
+            </p>
+            <a href="mailto:tacobarrionz@gmail.com?subject=Catering%20Enquiry%20-%20Taco%20Barrio"
+               style="color: var(--yellow); font-size: 1.3rem; font-weight: 700; text-decoration: none; word-break: break-all;">
+              tacobarrionz@gmail.com
+            </a>
+            <p style="color: #4b514d; font-size: 0.95rem; margin-top: 1.25rem; margin-bottom: 1.5rem;">
+              Include your event date, guest numbers, and what you have in mind.
+            </p>
+            <a href="mailto:tacobarrionz@gmail.com?subject=Catering%20Enquiry%20-%20Taco%20Barrio"
+               class="catering-submit"
+               style="display: inline-block; text-decoration: none;">
+              Send Enquiry
+            </a>
+          </div>
         </section>
       </div>
     </main>
@@ -449,61 +428,7 @@
       &copy; 2026 Taco Barrio. All rights reserved.
     </div>
 
-    <div
-      id="toast"
-      class="toast"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      <span id="toastIcon" class="toast-icon" aria-hidden="true">&#10003;</span>
-      <span id="toastMessage"></span>
-    </div>
-
     <script>
-      const form = document.getElementById("contactForm");
-      const submitButton = form.querySelector("button[type=submit]");
-      const toast = document.getElementById("toast");
-      const toastIcon = document.getElementById("toastIcon");
-      const toastMessage = document.getElementById("toastMessage");
-      let toastTimer;
-
-      function showToast(message, isError = false) {
-        clearTimeout(toastTimer);
-        toast.classList.toggle("is-error", isError);
-        toastIcon.textContent = isError ? "!" : "✓";
-        toastMessage.textContent = message;
-        toast.classList.add("is-visible");
-        toastTimer = setTimeout(
-          () => toast.classList.remove("is-visible"),
-          5000,
-        );
-      }
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-
-        try {
-          const response = await fetch("/api/send-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(Object.fromEntries(new FormData(form))),
-          });
-          const result = await response.json();
-          if (!response.ok)
-            throw new Error(result.error || "Failed to send email");
-          form.reset();
-          showToast("Thanks! Your catering enquiry is on its way.");
-        } catch (error) {
-          showToast("We could not send your enquiry. Please try again.", true);
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send enquiry";
-        }
-      });
-
       document.getElementById("hamburgerBtn").addEventListener("click", () => {
         const button = document.getElementById("hamburgerBtn");
         const links = document.getElementById("navLinks");
