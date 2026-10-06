@@ -9,7 +9,7 @@
     />
     <meta
       name="description"
-      content="Earn rewards with every order at Taco Barrio. Fresh Mexican street food in Auckland, New Zealand."
+      content="Join Barrio Rewards and earn points on your favourite Taco Barrio food. Fresh Mexican street food in Auckland, New Zealand."
     />
     <meta
       name="keywords"
@@ -304,15 +304,139 @@
       }
 
       /* ===== Rewards Page Content ===== */
+      .rewards-poster {
+        background: var(--cream);
+      }
+
+      .rewards-hero {
+        background:
+          radial-gradient(
+            circle at 8% 52%,
+            rgba(255, 184, 0, 0.16) 0 9rem,
+            transparent 9.2rem
+          ),
+          radial-gradient(
+            circle at 93% 46%,
+            rgba(248, 232, 195, 0.14) 0 8.5rem,
+            transparent 8.7rem
+          ),
+          var(--teal);
+        color: var(--cream);
+        min-height: 360px;
+        overflow: hidden;
+        padding: 6.5rem 1.5rem 2.5rem;
+        position: relative;
+        text-align: center;
+      }
+
+      .rewards-hero::before,
+      .rewards-hero::after {
+        background: var(--yellow);
+        border-radius: 999px;
+        content: "";
+        height: 0.55rem;
+        position: absolute;
+        top: 42%;
+        width: 4.2rem;
+      }
+
+      .rewards-hero::before {
+        box-shadow:
+          2.5rem -4rem 0 var(--yellow),
+          5.8rem 2rem 0 var(--cream);
+        left: 8%;
+        transform: rotate(120deg);
+      }
+
+      .rewards-hero::after {
+        box-shadow:
+          -2.3rem -4.2rem 0 var(--yellow),
+          -5.5rem 2rem 0 var(--cream);
+        right: 8%;
+        transform: rotate(60deg);
+      }
+
+      .rewards-food {
+        aspect-ratio: 1;
+        border-radius: 999px;
+        display: grid;
+        font-size: clamp(6rem, 17vw, 11rem);
+        place-items: center;
+        position: absolute;
+        top: 42%;
+        transform: translateY(-50%);
+        width: clamp(150px, 24vw, 280px);
+      }
+
+      .rewards-food-left {
+        left: max(-5rem, -8vw);
+        transform: translateY(-50%) rotate(-12deg);
+      }
+
+      .rewards-food-right {
+        right: max(-5rem, -8vw);
+        transform: translateY(-50%) rotate(10deg);
+      }
+
+      .rewards-hero-inner {
+        margin: 0 auto;
+        max-width: 760px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .rewards-hero-badge {
+        display: block;
+        font-size: clamp(2.4rem, 8vw, 4.5rem);
+        line-height: 0.8;
+        margin-bottom: 0.85rem;
+      }
+
+      .rewards-hero h1 {
+        color: var(--cream);
+        font-family: var(--font-heading);
+        font-size: clamp(3rem, 10vw, 6rem);
+        letter-spacing: 0.04em;
+        line-height: 0.95;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .rewards-hero h1 span {
+        color: var(--yellow);
+      }
+
+      .rewards-hero p {
+        color: rgba(248, 232, 195, 0.92);
+        font-size: clamp(1rem, 2vw, 1.28rem);
+        font-weight: 700;
+        line-height: 1.45;
+        margin: 0 auto 1.25rem;
+        max-width: 620px;
+      }
+
+      .rewards-hero-btn {
+        background: var(--cream);
+        border-radius: 6px;
+        color: var(--orange);
+        display: inline-flex;
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+        padding: 0.95rem 2.8rem;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
       .rewards-section {
         background-color: var(--cream);
-        padding: 4rem 1.5rem;
+        padding: 2.75rem 1.5rem 3.5rem;
         position: relative;
         overflow: hidden;
       }
 
       .rewards-inner {
-        max-width: 900px;
+        max-width: 1120px;
         margin: 0 auto;
       }
 
@@ -323,14 +447,19 @@
 
       .rewards-intro h2 {
         font-family: var(--font-heading);
-        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-size: clamp(2.2rem, 6vw, 3.8rem);
         color: var(--teal);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin-bottom: 0.75rem;
       }
 
+      .rewards-intro h2 span {
+        color: var(--yellow);
+      }
+
       .rewards-intro p {
+        display: none;
         font-size: 1.1rem;
         color: #4a5568;
         max-width: 600px;
@@ -340,15 +469,16 @@
 
       .rewards-steps {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-        margin-bottom: 3rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(1rem, 3vw, 2rem);
+        margin-bottom: 1.25rem;
       }
 
       .reward-step {
         background: var(--teal);
         color: var(--cream);
-        padding: 2rem 1.5rem;
+        min-height: 260px;
+        padding: 1.6rem 1.5rem 1.5rem;
         border-radius: 16px;
         text-align: center;
         border: 2px solid var(--yellow);
@@ -374,18 +504,147 @@
         margin-bottom: 1rem;
       }
 
+      .reward-step-icon {
+        color: var(--cream);
+        display: grid;
+        font-size: 3.6rem;
+        line-height: 1;
+        margin-bottom: 0.8rem;
+        margin-inline: auto;
+      }
+
       .reward-step h3 {
         font-family: var(--font-heading);
-        font-size: 1.3rem;
+        font-size: clamp(1.6rem, 3vw, 2rem);
         color: var(--yellow);
         margin-bottom: 0.5rem;
         letter-spacing: 0.03em;
+        text-transform: uppercase;
       }
 
       .reward-step p {
         font-size: 0.95rem;
         opacity: 0.9;
         line-height: 1.4;
+      }
+
+      .rewards-note {
+        background: rgba(3, 50, 44, 0.08);
+        border-left: 4px solid var(--orange);
+        color: var(--teal);
+        font-weight: 600;
+        line-height: 1.6;
+        margin: -1rem auto 3rem;
+        max-width: 760px;
+        padding: 1rem 1.25rem;
+      }
+
+      .rewards-disclaimer {
+        align-items: stretch;
+        background: rgba(255, 255, 255, 0.32);
+        border: 1px solid rgba(3, 50, 44, 0.12);
+        border-radius: 18px;
+        color: var(--teal);
+        display: grid;
+        font-size: 0.92rem;
+        font-weight: 600;
+        gap: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        line-height: 1.4;
+        margin: 0 auto 3rem;
+        max-width: 1060px;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .rewards-disclaimer a {
+        color: var(--teal);
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .rewards-disclaimer-item {
+        align-items: center;
+        display: flex;
+        gap: 0.85rem;
+        justify-content: center;
+        min-height: 84px;
+        padding: 1rem 1.1rem;
+        text-align: left;
+      }
+
+      .rewards-disclaimer-item + .rewards-disclaimer-item {
+        border-left: 1px solid rgba(3, 50, 44, 0.18);
+      }
+
+      .rewards-disclaimer-item i {
+        color: var(--teal);
+        flex: 0 0 auto;
+        font-size: 1.75rem;
+      }
+
+      .rewards-disclaimer-item .excluded-icon {
+        color: var(--red);
+        font-size: 1.3rem;
+        margin-left: -0.55rem;
+      }
+
+      @media (max-width: 860px) {
+        .rewards-steps,
+        .rewards-disclaimer {
+          grid-template-columns: 1fr;
+        }
+
+        .rewards-disclaimer-item + .rewards-disclaimer-item {
+          border-left: 0;
+          border-top: 1px solid rgba(3, 50, 44, 0.18);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .rewards-hero {
+          min-height: 310px;
+          padding-top: 5.5rem;
+        }
+
+        .rewards-food {
+          opacity: 0.18;
+        }
+      }
+
+      .rewards-terms {
+        background: #fff;
+        border: 2px solid rgba(3, 50, 44, 0.12);
+        border-radius: 8px;
+        padding: clamp(1.5rem, 4vw, 2.25rem);
+      }
+
+      .rewards-terms h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        color: var(--teal);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.75rem;
+      }
+
+      .rewards-terms p,
+      .rewards-terms li {
+        color: #4a5568;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .rewards-terms p {
+        margin-bottom: 1rem;
+      }
+
+      .rewards-terms ul {
+        display: grid;
+        gap: 0.6rem;
+        margin: 0;
+        padding-left: 1.2rem;
       }
 
       .rewards-tiers {
@@ -594,161 +853,109 @@
         </button>
         <!-- <span class="first-visit-emoji">🌮</span> -->
         <span class="first-visit-badge">Welcome to the Barrio!</span>
-        <h2 class="first-visit-title">Place Your <span>First Order</span></h2>
+        <h2 class="first-visit-title">Barrio <span>Rewards</span></h2>
         <p class="first-visit-subtitle">
-          Start earning delicious rewards with every bite. Your first order
-          unlocks exclusive perks — fresh tacos, burritos & more await!
+          Join Barrio Rewards in-store and start collecting points on your
+          favourite Taco Barrio food.
         </p>
-        <a
-          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
-          class="first-visit-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Order Now
-        </a>
+        <a href="#rewards" class="first-visit-cta"> Learn More </a>
       </div>
     </div>
 
     <!-- Rewards Section -->
-    <section id="order" class="order-embed-section">
-      <div class="order-embed-header">
-        <span class="order-embed-emoji">🌮</span>
-        <h2>Make Your <span>First Order</span></h2>
-        <p>
-          Start your Barrio journey right here — fresh tacos, burritos & more
-          await!
-        </p>
-
-        <a
-          href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
-          target="_blank"
-          class="order-now-btn"
-          style="
-            padding: 15px 40px;
-            display: inline-block;
-            text-decoration: none;
-            background-color: #f8e8c3;
-          "
+    <main class="rewards-poster">
+      <section class="rewards-hero" aria-labelledby="rewards-title">
+        <span class="rewards-food rewards-food-left" aria-hidden="true"
+          >🌮</span
         >
-          <span>Order Now</span>
-        </a>
-      </div>
-
-      <!-- <div class="order-embed-wrapper">
-        <iframe
-          src="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
-          title="Taco Barrio Online Ordering"
-          class="order-embed-iframe"
-          loading="lazy"
-          allow="payment"
-        ></iframe>
-      </div> -->
-    </section>
-
-    <section class="rewards-section">
-      <div class="rewards-inner">
-        <div class="rewards-intro">
-          <h2>Earn Taco <span>Rewards</span></h2>
+        <span class="rewards-food rewards-food-right" aria-hidden="true"
+          >🌯</span
+        >
+        <div class="rewards-hero-inner">
+          <span class="rewards-hero-badge" aria-hidden="true">🌮</span>
+          <h1 id="rewards-title">Barrio <span>Rewards</span></h1>
           <p>
-            Join the Barrio loyalty program. Earn points with every order and
-            unlock exclusive perks, free food, and more.
+            Join Barrio Rewards and start collecting points on your favourite
+            Taco Barrio food.
           </p>
-        </div>
-
-        <div class="rewards-steps">
-          <div class="reward-step">
-            <div class="reward-step-number">1</div>
-            <h3>Sign Up</h3>
-            <p>Create an account when you place your first order.</p>
-          </div>
-          <div class="reward-step">
-            <div class="reward-step-number">2</div>
-            <h3>Earn Rewards</h3>
-            <p>
-              Order your favorite Mexican street food and start collecting
-              rewards.
-            </p>
-          </div>
-          <div class="reward-step">
-            <div class="reward-step-number">3</div>
-            <h3>Enjoy Perks</h3>
-            <p>Unlock exclusive deals, free food, and special offers!</p>
-          </div>
-        </div>
-
-        <!-- <div class="rewards-tiers">
-          <h2>Why Join the Barrio?</h2>
-          <div class="tier-grid">
-            <div class="tier-card">
-              <span class="tier-emoji">🌮</span>
-              <h3>Exclusive Offers</h3>
-              <div class="tier-orders">Members Only</div>
-              <p>
-                Get access to special deals and discounts available only to our
-                loyalty members.
-              </p>
-            </div>
-            <div class="tier-card">
-              <span class="tier-emoji">🎉</span>
-              <h3>Birthday Treats</h3>
-              <div class="tier-orders">Celebrate With Us</div>
-              <p>
-                Enjoy a special surprise from us on your birthday as part of the
-                familia.
-              </p>
-            </div>
-            <div class="tier-card">
-              <span class="tier-emoji">🔥</span>
-              <h3>Earn Free Food</h3>
-              <div class="tier-orders">Delicious Perks</div>
-              <p>
-                Your orders add up! Earn your way towards free tacos, burritos,
-                and more.
-              </p>
-            </div>
-          </div>
-        </div> -->
-        <!-- 
-        <div class="rewards-cta">
           <a
+            class="rewards-hero-btn"
             href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
-            class="rewards-cta-btn"
-            target="_blank"
-            rel="noopener noreferrer"
+            >Join In-Store</a
           >
-            <i class="fa-solid fa-star"></i> Join the Barrio Program
-          </a>
-        </div> -->
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <!-- Order Now Embedded Section -->
-    <!-- <section id="order" class="order-embed-section">
-      <div class="order-embed-header">
-        <span class="order-embed-emoji">🌮</span>
-        <h2>Make Your <span>First Order</span></h2>
-        <p>
-          Start your Barrio journey right here — fresh tacos, burritos & more
-          await!
-        </p>
+      <section class="rewards-section" id="rewards">
+        <div class="rewards-inner">
+          <div class="rewards-intro">
+            <h2>How <span>Barrio Rewards</span> Works</h2>
+          </div>
 
-        <a href="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb" target="_blank" class="order-now-btn" style="padding: 15px 40px; display: inline-block; text-decoration: none;">
-          <span>Order Now</span>
-        </a>
-      </div>
+          <div class="rewards-steps">
+            <div class="reward-step">
+              <div class="reward-step-number">1</div>
+              <i
+                class="fa-solid fa-user-plus reward-step-icon"
+                aria-hidden="true"
+              ></i>
+              <h3>Join</h3>
+              <p>
+                Create your Barrio Rewards account at our kiosk or in-store POS.
+              </p>
+            </div>
+            <div class="reward-step">
+              <div class="reward-step-number">2</div>
+              <i
+                class="fa-solid fa-bowl-food reward-step-icon"
+                aria-hidden="true"
+              ></i>
+              <h3>Earn Points</h3>
+              <p>
+                Order your favourite Taco Barrio food and collect points on
+                eligible items.
+              </p>
+            </div>
+            <div class="reward-step">
+              <div class="reward-step-number">3</div>
+              <i
+                class="fa-solid fa-gift reward-step-icon"
+                aria-hidden="true"
+              ></i>
+              <h3>Get Rewarded</h3>
+              <p>
+                Collect enough points and redeem them for available Barrio
+                Rewards.
+              </p>
+            </div>
+          </div>
 
-      <!-- <div class="order-embed-wrapper">
-        <iframe
-          src="https://order.tabin.co.nz/0461e577-e98f-4289-aafd-59f428f66beb"
-          title="Taco Barrio Online Ordering"
-          class="order-embed-iframe"
-          loading="lazy"
-          allow="payment"
-        ></iframe>
-      </div> -->
-    <!-- </section> -->
-    <!-- -->
+          <div class="rewards-disclaimer">
+            <div class="rewards-disclaimer-item">
+              <i class="fa-solid fa-store" aria-hidden="true"></i>
+              <span>Available in-store and kiosk only</span>
+            </div>
+            <div class="rewards-disclaimer-item">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i
+                class="fa-solid fa-circle-xmark excluded-icon"
+                aria-hidden="true"
+              ></i>
+              <span>Online and delivery orders are currently excluded</span>
+            </div>
+            <div class="rewards-disclaimer-item">
+              <i class="fa-regular fa-star" aria-hidden="true"></i>
+              <span>Points do not expire</span>
+            </div>
+            <div class="rewards-disclaimer-item">
+              <a href="barrio-rewards-terms.html"
+                >Terms &amp; Conditions apply</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer>
